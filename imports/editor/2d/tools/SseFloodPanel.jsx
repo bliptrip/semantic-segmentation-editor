@@ -11,8 +11,8 @@ export default class SseFloodPanel extends React.Component {
         SseMsg.register(this);
         this.state = {};
         this.state.data = {
-            threshold: 15,
-            blurRadius: 5
+            threshold: 50,
+            blurRadius: 50 
         }
 
     }

@@ -147,9 +147,9 @@ export default class SseToolbar extends React.Component {
 
         if (shortcut) {
             if (!actionMessage.endsWith("-checkbox"))
-                Mousetrap.bind(shortcut.toLowerCase(), () => this.sendMsg(actionMessage));
+                Mousetrap.bind(shortcut.map(m => (m.toLowerCase())), () => this.sendMsg(actionMessage));
             else
-                Mousetrap.bind(shortcut.toLowerCase(), () => $("#" + name).click());
+                Mousetrap.bind(shortcut.map(m => (m.toLowerCase())), () => $("#" + name).click());
         }
     }
 

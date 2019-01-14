@@ -15,14 +15,14 @@ export default class SseLayers extends React.Component {
             {label: "Middle ground", index: 1, visible: true},
             {label: "Background", index: 0, visible: true}
         ];
-        this.state.selected = 0;
+        this.state.selected = 2;
 
     };
 
     componentDidMount() {
         this.onMsg("sse-image-loaded", () => {
             this.state.layers.forEach(s => s.visible = true);
-            this.state.selected = 0;
+            this.state.selected = 2;
             this.setState(this.state);
         });
 

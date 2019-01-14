@@ -32,7 +32,7 @@ export default class SseEditor2d extends React.Component {
         this.hitExcluded = new Set();
         // The opacity of polygons
         this.mainLayerOpacity = 0.75;
-        this.layerIndex = 0;
+        this.layerIndex = 2;
         this.hiddenLayers = new Set();
 
         this.undoRedo = new SseUndoRedo2d(this.cloningDataFunction);

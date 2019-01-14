@@ -1,149 +1,54 @@
 {
   "configuration": {
-    "images-folder": "",
-    "internal-folder": ""
+    "input-folder": "/mnt/external/Cranberries/DroneImagery/2018/annotated",
+    "output-folder": "/mnt/external/Cranberries/DroneImagery/2018/annotated/SseOutput"
   },
   "sets-of-classes": [
     {
-      "name": "Cityscapes", "objects": [
-      {"label": "VOID", "color": "#CFCFCF"},
-      {"label": "Road", "color": "#804080", "icon": "Road"},
-      {"label": "Sidewalk", "color": "#F423E8", "icon": "NaturePeople"},
-      {"label": "Parking", "color": "#FAAAA0", "icon": "Parking"},
-      {"label": "Rail Track", "color": "#E6968C", "icon": "Train"},
-      {"label": "Person", "color": "#DC143C", "icon": "Walk"},
-      {"label": "Rider", "color": "#FF0000", "icon": "Motorbike"},
-      {"label": "Car", "color": "#0000E8", "icon": "Car"},
-      {"label": "Truck", "color": "#000046", "icon": "Truck"},
-      {"label": "Bus", "color": "#003C64", "icon": "Bus"},
-      {"label": "On Rails", "color": "#E6968C", "icon": "Train"},
-      {"label": "Motorcycle", "color": "#0000E6", "icon": "Motorbike"},
-      {"label": "Bicycle", "color": "#770B20", "icon": "Bike"},
-      {"label": "Caravan", "color": "#00005A", "icon": "Caravan"},
-      {"label": "Trailer", "color": "#00006E", "icon": "TruckTrailer"},
-      {"label": "Building", "color": "#464646", "icon": "HomeVariant"},
-      {"label": "Wall", "color": "#66669C", "icon": "Wall"},
-      {"label": "Fence", "color": "#BE9999", "icon": "Gate"},
-      {"label": "Guard Rail", "color": "#B4A5B4", "icon": "SignCaution"},
-      {"label": "Bridge", "color": "#966464", "icon": "Bridge"},
-      {"label": "Tunnel", "color": "#96785A", "icon": "AlarmLight"},
-      {"label": "Pole", "color": "#999999", "icon": "Instapaper"},
-      {"label": "Pole Group", "color": "#999999", "icon": "Instapaper"},
-      {"label": "Traffic Sign", "color": "#DCDC00", "icon": "SignDirection"},
-      {"label": "Traffic Light", "color": "#FAAA1E", "icon": "TrafficLight"},
-      {"label": "Vegetation", "color": "#6B8E23", "icon": "PineTree"},
-      {"label": "Terrain", "color": "#98FB98", "icon": "Terrain"},
-      {"label": "Sky", "color": "#4682B4", "icon": "WeatherPartlycloudy"},
-      {"label": "Ground", "color": "#510051", "icon": "Drag"},
-      {"label": "Dynamic", "color": "#6F4A00", "icon": "RunFast"},
-      {"label": "Static", "color": "#000000", "icon": "Anchor"}
+      "name": "Drone Berry Development", "objects": [
+      {"label": "VOID", "color": "#000000"},
+      {"label": "Flag", "color": "#d67e2c"},
+      {"label": "Aisle", "color": "#c29682" },
+      {"label": "Plot", "color": "#469449"},
+      {"label": "Partial Plot", "color": "#80ff00"},
+      {"label": "Bedding", "color": "#333300"},
+      {"label": "Size Card", "color": "#ffffff"},
+      {"label": "Sprinkler", "color": "#a0a0a0"},
+      {"label": "Harvest Ring", "color": "#e7c71f"}
     ]
-    },
+    }
+    ,
     {
-      "name": "AD20",
-      "objects": [
-        {"label": "VOID", "color": "#CFCFCF"},
-        {
-          "label": "Void",
-          "color": "#FF8800",
-          "icon": "BorderNoneVariant"
-        }, {
-          "label": "Road",
-          "color": "#799024",
-          "icon": "Road"
-        },
-        {
-          "label": "Pedestrian",
-          "color": "#FAFFF5",
-          "icon": "Walk"
-        },
-        {
-          "label": "Car",
-          "color": "#FF6D67",
-          "icon": "Car"
-        },
-        {
-          "label": "Truck",
-          "color": "#FF5B8E",
-          "icon": "Truck"
-        },
-        {
-          "label": "Bus",
-          "color": "#FF6FA2",
-          "icon": "Bus"
-        },
-        {
-          "label": "On rails",
-          "color": "#FF7FC3",
-          "icon": "Train"
-        },
-        {
-          "label": "Motorcycle",
-          "color": "#FFA859",
-          "icon": "Motorbike"
-        },
-        {
-          "label": "Bicycle",
-          "color": "#FFDB62",
-          "icon": "Bike"
-        },
-        {
-          "label": "Sky",
-          "color": "#87D8FF",
-          "icon": "WeatherPartlycloudy"
-        },
-        {
-          "label": "Vegetation",
-          "color": "#7BC32B",
-          "icon": "PineTree"
-        },
-        {
-          "label": "Sidewalk",
-          "color": "#827E67",
-          "icon": "NaturePeople"
-        },
-        {
-          "label": "Traffic sign",
-          "color": "#9E9BFF",
-          "icon": "SignDirection"
-        },
-        {
-          "label": "Lane marking",
-          "color": "#DDCDFF",
-          "icon": "RoadVariant"
-        },
-        {
-          "label": "Building",
-          "color": "#785C6F",
-          "icon": "HomeVariant"
-        },
-        {
-          "label": "Traffic light",
-          "color": "#119599",
-          "icon": "SignDirection"
-        },
-        {
-          "label": "Snow covered",
-          "color": "#F1F1EF",
-          "icon": "Snowflake"
-        },
-        {
-          "label": "Pole",
-          "color": "#FBB577",
-          "icon": "Instapaper"
-        },
-        {
-          "label": "Unpaved road",
-          "color": "#C0AE89",
-          "icon": "BlurLinear"
-        },
-        {
-          "label": "Guard rail",
-          "color": "#4D3D48",
-          "icon": "SignCaution"
-        }
-      ]
-    },
+      "name": "X-Rite Color Checker Card", "objects": [
+      {"label": "VOID", "color": "#000000"},
+      {"label": "Square Divider", "color": "#000000"},
+      {"label": "1  Dark Skin", "color": "#735244"},
+      {"label": "2  Light Skin", "color": "#c29682" },
+      {"label": "3  Blue Sky", "color": "#627a9d"},
+      {"label": "4  Foliage", "color": "#576c43"},
+      {"label": "5  Blue Flower", "color": "#8580b1"},
+      {"label": "6  Bluish Green", "color": "#67bdaa"},
+      {"label": "7  Orange", "color": "#d67e2c"},
+      {"label": "8  Purplish Blue", "color": "#505ba6"},
+      {"label": "9  Moderate Red", "color": "#c15a63"},
+      {"label": "10 Purple", "color": "#5e3c6c"},
+      {"label": "11 Yellow Green", "color": "#9dbc40"},
+      {"label": "12 Orange Yellow", "color": "#e0a32e"},
+      {"label": "13 Blue", "color": "#383d96"},
+      {"label": "14 Green", "color": "#469449"},
+      {"label": "15 Red", "color": "#af363c"},
+      {"label": "16 Yellow", "color": "#e7c71f"},
+      {"label": "17 Magenta", "color": "#bb5695"},
+      {"label": "18 Cyan", "color": "#0885a1"},
+      {"label": "19 White", "color": "#f3f3f2"},
+      {"label": "20 Neutral 8", "color": "#c8c8c8"},
+      {"label": "21 Neutral 6.5", "color": "#a0a0a0"},
+      {"label": "22 Neutral 5", "color": "#7a7a79"},
+      {"label": "23 Neutral 3.5", "color": "#555555 "},
+      {"label": "24 Black", "color": "#343434"}
+    ]
+    }
+    ,
     {
       "name": "33 Classes", "objects": [
       {"label": "VOID", "color": "#CFCFCF"},
@@ -183,4 +88,3 @@
     }
   ]
 }
-
