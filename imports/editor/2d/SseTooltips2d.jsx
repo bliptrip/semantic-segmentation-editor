@@ -40,6 +40,14 @@ export default class SseTooltips2d extends React.Component {
                 <p>The new line replace the existing path between starting and ending points</p>
                 <p>The resulting shape is always the largest one</p>
             </div>
+            <div id="fusionCommandHelp">
+                <p><strong>Fusion Tool</strong></p>
+                <p className="italic">Merge contiguous polygons seemlessly using a mouse click and drag.</p>
+                <p>Select first polygon you want to use as the reference.</p>
+                <p>Holding mouse down, drag over to neighboring polygons.  Neighboring polygons will merge into</p>
+                <p>the reference polygon and the union/fusion of the two will be reclassified according to the</p>
+                <p>reference category.</p>
+            </div>
             <div id="followCommandHelp">
                 <p><strong>Contiguous Polygon Tool</strong></p>
                 <p className="italic">Create contiguous polygons easily</p>

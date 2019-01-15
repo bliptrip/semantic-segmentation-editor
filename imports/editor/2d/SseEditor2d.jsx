@@ -5,6 +5,7 @@ import url from "url";
 import SseGeometry from "./SseGeometry";
 import SsePointerTool from "./tools/SsePointerTool"
 import SseCutTool from "./tools/SseCutTool";
+import SseFusionTool from "./tools/SseFusionTool";
 import SsePolygonTool from "./tools/SsePolygonTool";
 import SseRectangleTool from "./tools/SseRectangleTool";
 import SseFloodTool from "./tools/SseFloodTool";
@@ -987,6 +988,7 @@ export default class SseEditor2d extends React.Component {
 
         this.onMsg("pointer", () => this.pointerTool.activate());
         this.onMsg("cut", () => this.cutTool.activate());
+        this.onMsg("fusion", () => this.fusionTool.activate());
         this.onMsg("polygon", () => this.polygonTool.activate());
         this.onMsg("rectangle", () => this.rectangleTool.activate());
         this.onMsg("flood", () => this.floodTool.activate());
@@ -1054,6 +1056,7 @@ export default class SseEditor2d extends React.Component {
 
         this.polygonTool = new SsePolygonTool(this);
         this.pointerTool = new SsePointerTool(this);
+        this.fusionTool = new SseFusionTool(this);
         this.cutTool = new SseCutTool(this);
         this.rectangleTool = new SseRectangleTool(this);
         this.floodTool = new SseFloodTool(this);

@@ -2,7 +2,7 @@ import React from 'react';
 import SseToolbar from "../../common/SseToolbar";
 import {
     ArrangeBringForward, ArrangeSendBackward, AutoFix, CallMerge, CheckOutline, ContentCut, CropLandscape,
-    CursorDefaultOutline, DeleteForever, Download, Json, Looks, Redo, Undo, VectorPolygon
+    CursorDefaultOutline, DeleteForever, Download, Json, Looks, Redo, Undo, VectorPolygon, SetAll
 } from 'mdi-material-ui';
 import SseBranding from "../../common/SseBranding";
 
@@ -10,14 +10,15 @@ export default class SseToolbar2d extends SseToolbar {
 
     componentDidMount() {
         super.componentDidMount();
-        this.addCommand("undoCommand", "Undo", false, ["command+Z","Ctrl+Z"], "undo", Undo, "disabled");
-        this.addCommand("redoCommand", "Redo", false, ["command+Y","Ctrl+Y"], "redo", Redo, "disabled");
+        this.addCommand("undoCommand", "Undo", false, ["command+Z","Ctrl+Z"], "undo", Undo, "disabled", "Undo");
+        this.addCommand("redoCommand", "Redo", false, ["command+Y","Ctrl+Y"], "redo", Redo, "disabled", "Redo");
         this.addCommand("pointerCommand", "Manipulation Tool", 1, ["S"], "pointer", CursorDefaultOutline);
         this.addCommand("cutCommand", "Cut/Expand Tool", 1, ["C"], "cut", ContentCut, "disabled");
+        this.addCommand("fusionCommand", "Fusion Tool", 1, ["U"], "fusion", SetAll);
         this.addCommand("rectangleCommand", "Rectangle Tool", 1, ["R"], "rectangle", CropLandscape);
         this.addCommand("polygonCommand", "Polygon Tool", 1, ["P"], "polygon", VectorPolygon);
         this.addCommand("magicCommand", "Magic Tool", 1, ["A"], "flood", AutoFix);
-        this.addCommand("deleteCommand", "Delete Selection", false, ["Del","X"], "delete", DeleteForever, "disabled");
+        this.addCommand("deleteCommand", "Delete Selection", false, ["Del","X"], "delete", DeleteForever, "disabled", "Delete");
         this.addCommand("downCommand", "Send Backward", false, ["Down"], "moveback", ArrangeSendBackward, "disabled");
         this.addCommand("upCommand", "Bring Forward", false, ["Up"], "movefront", ArrangeBringForward, "disabled");
         this.addCommand("mergeCommand", "Merge Polygons", false, ["M"], "merge", CallMerge, "disabled");
@@ -41,6 +42,7 @@ export default class SseToolbar2d extends SseToolbar {
                 <div className="group">
                     {this.renderCommand("pointerCommand")}
                     {this.renderCommand("cutCommand")}
+                    {this.renderCommand("fusionCommand")}
                 </div>
                 <div className="group">
                     {this.renderCommand("rectangleCommand")}
