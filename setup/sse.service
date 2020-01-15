@@ -1,0 +1,17 @@
+[Unit]
+Description=Semantic Segmentation Editor Meteor Server Service
+After=network.target auditd.service
+
+[Service]
+Type=simple
+User=maule
+TimeoutSec=300
+ExecStart=/usr/local/bin/meteor --settings /home/downloads/bliptrip/semantic-segmentation-editor/settings.json
+ExecReload=/bin/kill -HUP $MAINPID
+RuntimeDirectory=sse
+RuntimeDirectoryMode=0755
+WorkingDirectory=/home/downloads/bliptrip/semantic-segmentation-editor/
+
+[Install]
+WantedBy=multi-user.target
+Alias=sse.service
