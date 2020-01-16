@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor",
   "scripts": {
-    "debug": "meteor --settings settings.json",
-    "start": "meteor --settings settings.json --production"
+    "debug": "meteor --port 3030 --settings settings.json",
+    "start": "meteor --port 3030 --settings settings.json --production"
   },
   "dependencies": {
     "@babel/runtime": "7.1.5",

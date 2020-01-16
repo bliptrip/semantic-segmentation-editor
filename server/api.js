@@ -14,7 +14,7 @@ const {imagesFolder, pointcloudsFolder, setsOfClassesMap} = configurationFile;
 new SsePCDLoader(THREE);
 
 function imagesListing(req, res, next) {
-    const all = SseSamples.find({}, {
+    const all = SseSamples.find({tags: {"$nin": ["predicted"]}}, {
         fields: {
             url: 1,
             folder: 1,

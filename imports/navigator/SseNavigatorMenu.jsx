@@ -7,7 +7,7 @@ import {Menu} from 'mdi-material-ui';
 class SseNavigatorMenu extends React.Component {
     constructor(){
         super();
-        this.labels = ["All images", "Annotated images"];
+        this.labels = ["All images", "Annotated images", "Predicted images"];
     }
     state = {
         anchorEl: null,
@@ -21,6 +21,7 @@ class SseNavigatorMenu extends React.Component {
         switch (event.target.textContent){
             case this.labels[0]: this.props.history.push("/"); break;
             case this.labels[1]: this.props.history.push("/annotated"); break;
+            case this.labels[2]: this.props.history.push("/predicted"); break;
         }
         this.setState({ anchorEl: null });
     };
@@ -41,6 +42,7 @@ class SseNavigatorMenu extends React.Component {
                 >
                     <MenuItem onClick={this.handleClose}>{this.labels[0]}</MenuItem>
                     <MenuItem onClick={this.handleClose}>{this.labels[1]}</MenuItem>
+                    <MenuItem onClick={this.handleClose}>{this.labels[2]}</MenuItem>
                 </MuiMenu>
             </div>
         );

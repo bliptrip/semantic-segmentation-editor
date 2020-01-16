@@ -54,7 +54,7 @@ class SseAllAnnotated extends React.Component {
 
 export default withTracker(() => {
     Meteor.subscribe("sse-labeled-images");
-    const all = SseSamples.find({file: {"$exists": true}, tags: {"$nin": ["predicted"]}}).fetch();
+    const all = SseSamples.find({file: {"$exists": true}, "tags" : {"$in" : ["predicted"]}}).fetch();
     const grouped = new MapSet();
     all.forEach(im =>{grouped.map(im.folder, im)});
     const imagesCount = all.length;
