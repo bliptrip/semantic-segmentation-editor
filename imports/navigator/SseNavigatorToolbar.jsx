@@ -6,6 +6,7 @@ import {ChevronRight} from "mdi-material-ui";
 import url from "url";
 import SseBranding from "../common/SseBranding";
 import SseNavigatorMenu from "./SseNavigatorMenu";
+import SseNavigatorSearch from "./SseNavigatorSearch";
 
 
 export default class SseNavigatorToolbar extends React.Component {
@@ -69,7 +70,7 @@ export default class SseNavigatorToolbar extends React.Component {
                         </div>
                     ))}
                 </div>
-
+                <SseNavigatorSearch />
                 <SseNavigatorMenu history={this.props.history}/>
             </Toolbar>
         );
