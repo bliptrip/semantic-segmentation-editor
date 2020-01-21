@@ -49,6 +49,15 @@ meteor npm install
 meteor npm start
 ```
 
+##### BUGFIX related to @material-ui/icons needing version dependency against older version of @babel/runtime
+```
+cd node_modules/@material-ui/icons
+```
+Add following line to package.json dependencies section:
+```
+"@babel/runtime": "7.0.0-beta.51"
+```
+And run ```npm install @babel/runtime``` from the node_modules/@material-ui/icons/ folder.
 
 The editor will run by default on `http://localhost:3000`
 
