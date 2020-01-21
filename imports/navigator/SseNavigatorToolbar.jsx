@@ -70,7 +70,7 @@ export default class SseNavigatorToolbar extends React.Component {
                         </div>
                     ))}
                 </div>
-                <SseNavigatorSearch />
+                <SseNavigatorSearch history={this.props.history}/>
                 <SseNavigatorMenu history={this.props.history}/>
             </Toolbar>
         );
