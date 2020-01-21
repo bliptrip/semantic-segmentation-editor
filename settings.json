@@ -14,7 +14,8 @@
       {"label": "Bedding", "color": "#333300"},
       {"label": "Size Card", "color": "#ffffff"},
       {"label": "Sprinkler", "color": "#a0a0a0"},
-      {"label": "Harvest Ring", "color": "#e7c71f"}
+      {"label": "Harvest Ring - Outer", "color": "#e7c71f"},
+      {"label": "Harvest Ring - Inner", "color": "#cc0000"}
     ]
     }
     ,
