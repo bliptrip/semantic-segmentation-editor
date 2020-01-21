@@ -1,6 +1,6 @@
 {
   "configuration": {
-    "images-folder": "/mnt/external/Cranberries/DroneImagery/2018/annotated",
+    "images-folder": "/mnt/external/Cranberries/DroneImagery/2018",
     "internal-folder": ""
   },
   "sets-of-classes": [
