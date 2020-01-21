@@ -6,11 +6,17 @@ It supports images (.jpg or .png) and point clouds (.pcd).
 It is a [Meteor](http://www.meteor.com) app developed with [React](http://reactjs.org),
 [Paper.js](http://paperjs.org/) and [three.js](https://threejs.org/).
 
+**Latest changes**
+ - **Version 1.3:** Improve pointcloud labeling: bug fixes and performance improvement (labeling a 1M pointcloud is now possible)
+ - **Version 1.2.2:** Breaking change: exported point cloud coordinates are no longer translated (thanks @hetzge)
+ - **Version 1.2.0:** Support for binary and binary compressed point clouds (thanks @CecilHarvey)
+ 
+
 ## Bitmap Image Editor
 
 :movie_camera: [VIDEO: Bitmap labeling overview](https://vimeo.com/282003466)
 
-:rocket: [DEMO: Bitmap editor](http://sse.hup.li/edit/%2Fsamples%2Fbitmap.png)
+:rocket: [DEMO: Bitmap editor](http://sse.hup.li/edit/%2Fbitmap_labeling.png)
 
 <a href="https://github.com/dmandrioli/sse-extra/raw/master/Capture2D1.PNG"><img width="400" src="https://github.com/dmandrioli/sse-extra/raw/master/Capture2D1.jpg"/></a>
 <a href="https://github.com/dmandrioli/sse-extra/raw/master/Capture2D2.PNG"><img width="400" src="https://github.com/dmandrioli/sse-extra/raw/master/Capture2D2.jpg"/></a>
@@ -19,7 +25,7 @@ It is a [Meteor](http://www.meteor.com) app developed with [React](http://reactj
 
 :movie_camera: [VIDEO: Point cloud labeling overview](https://vimeo.com/282222626)
 
-:rocket: [DEMO: Point cloud editor](http://sse.hup.li/edit/%2Fsamples%2Fpointcloud.pcd)
+:rocket: [DEMO: Point cloud editor](http://sse.hup.li/edit/%2Fpointcloud_labeling.pcd)
 
 <a href="https://github.com/dmandrioli/sse-extra/raw/master/Capture3D1.PNG"><img width="400" src="https://github.com/dmandrioli/sse-extra/raw/master/Capture3D1.jpg"/></a>
 <a href="https://github.com/dmandrioli/sse-extra/raw/master/Capture3D2.PNG"><img width="400" src="https://github.com/dmandrioli/sse-extra/raw/master/Capture3D2.jpg"/></a>
@@ -57,17 +63,6 @@ On Windows, use '/' separators, example <code>c:/Users/john/images</code>
 Check [Meteor Environment Variables](https://docs.meteor.com/environment-variables.html) to configure your app
 (`MONGO_URL`, `DISABLE_WEBSOCKETS`, etc...)
 
-
-### Running the app using Docker
-
-A Docker image of  v1.0.0 is available [here](https://hub.docker.com/r/hitachiail/semantic-segmentation-editor/)
-
-To run it:
-```
-docker pull hitachiail/semantic-segmentation-editor
-docker run -it -p PORT:3000 -v INPUT_FOLDER:/mnt/images -v OUTPUT_FOLDER:/mnt/pcd hitachiail/semantic-segmentation-editor:latest
-```
-Replace <code>PORT</code>, <code>INPUT_FOLDER</code> and <code>OUTPUT_FOLDER</code> according to your needs.
 
 ## Configuration File: settings.json
 
