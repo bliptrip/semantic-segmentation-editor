@@ -572,16 +572,19 @@ export default class SseEditor2d extends React.Component {
         const start = new Date().getTime();
         this.cleanupGraphicsHierarchy();
         this.geom = new SseGeometry(this.mainLayer.children, ignoreLastPolygon);
-        this.geom.computePolygonsIntersections();
+        //this.geom.computePolygonsIntersections(); //AFM - removing functionality for performance reasons
         // console.log("Geometry updated in", (new Date().getTime() - start) + "ms")
     }
 
     cleanupGraphicsHierarchy() {
-        this.mainLayer.children.forEach(pol => {
-            let rc = pol.resolveCrossings();
-            rc.feature = pol.feature;
-            this.flattenNonSimplePath(rc)
-        });
+        /* AFM - Removing this functionality for performance reasons -- Seems to be unecessary for the types of paths we
+         * are working with?
+         *this.mainLayer.children.forEach(pol => {
+         *   let rc = pol.resolveCrossings();
+         *   rc.feature = pol.feature;
+         *   this.flattenNonSimplePath(rc)
+         *});
+         */
         this.mainLayer.children.forEach(pol => {
             if (pol.bounds.width < 2 || pol.bounds.height < 2 || pol.bounds.area < 10) {
                 pol.remove();

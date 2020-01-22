@@ -169,7 +169,7 @@ export default class SsePointerTool extends SseTool {
             hittedSegments = hittedSegments.filter(i => i.type == "segment" && i.item != this.editor.selectorPath);
             const toSelect = new Set();
             hittedSegments.forEach(seg => {
-                let ints = seg.item.getIntersections(this.editor.selectorPath);
+                let ints = seg.item.getIntersections(this.editor.selectorPath); //Paper.js getIntersections(), not SseGeometry's getIntersections()
                 let d1, d2;
                 if (ints.length >= 2) {
                     d1 = seg.item.divideAt(ints[0]);

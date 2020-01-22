@@ -21,12 +21,12 @@ export default class SseGeometry {
 
     segmentAsString(seg) {
         const p = 100000000;
-        return JSON.stringify({x: Math.round(seg.point.x * p), y: Math.round(seg.point.y * p)});
+        return JSON.stringify({x: Math.round(seg.point.x * p), y: Math.round(seg.point.y * p)}); //Why multiply by p?  Because the developers wanted to make sure rounding didn't result in duplicate entries in the _segment2opoint map
     }
 
     segment2point(seg) {
         const ssas = this.segmentAsString(seg);
-        let rep = this._segment2point.get(ssas);
+        let rep = this._segment2point.get(ssas); //See if this point is already in the _segment2point map?
         if (!rep) {
             rep = {x: seg.point.x, y: seg.point.y};
             this._segment2point.set(ssas, rep);
@@ -101,11 +101,12 @@ export default class SseGeometry {
                 this.nextOutlinePoints.set(pt, (nexts || new Set()).union(this.contiguousOutlinePoints(seg)));
             });
         });
-        this.computePolygonsIntersections();
+        //this.computePolygonsIntersections(); //AFM - Removing calculation of intersections -- disables automated merge
+        //functionality for now
     }
 
 
-    findPathRec(p1, p2, path, result, length, lastVisited) {
+    findPathRec(p1, p2, path, result, length, lastVisited) { //Rec is for recursive -- This is a helper function to findPath()
         let nextP1 = this.nextOutlinePoints.get(p1);
         let pt = xy => new Paper.Point(xy);
         if (lastVisited) {
