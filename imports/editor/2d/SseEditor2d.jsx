@@ -145,16 +145,84 @@ export default class SseEditor2d extends React.Component {
     }
 
     mergePath() {
-
-        if (this.selectedIntersections) {
-            if (this.selectedIntersections.size > 1) {
-                this.sendMsg("alert", {message: "Click on a polygon that overlaps the selected polygon."});
-                this.mergingFirstPath = this.getFirstSelectedPolygon();
-            } else {
-                const other = this.selectedIntersections.values().next().value;
-                const me = this.getFirstSelectedPolygon();
-                this.mergePaths(me, other);
+        const removeSegments = (path, int_indices)  => {
+            /* Function to remove segments between intersecting points on the two paths */
+            const removeInterIntersections = (path, indices, start, end) => {
+                for ( var i = start-2; i >= end; i-- ) {
+                    var last_int_index = indices[i+1];
+                    var curr_int_index = indices[i];
+                    path.removeSegments(curr_int_index+1, last_int_index); //+1 to not delete the actual intersection point
+                }
             }
+            var diff;
+            var int_diffs_freq = {}; //Frequency counts of differences b/w successive indices
+            var max_diff = 0; //The maximal difference between two successive indices
+            var max_diff_index = 0; //The index at which the maximal diff occurs
+            var max_diff_count = 0; //Keeps track of the maximal difference frequency
+            var mode; //Tracks the mode (largest representative differential)
+            var wraparound = false;
+            for ( var i = 1; i < int_indices.length; i++ ) {
+                diff = int_indices[i] - int_indices[i-1];
+                if( max_diff < diff ) {
+                    max_diff_index = i;
+                    max_diff = diff;
+                }
+                if (!int_diffs_freq[diff]) {
+                    int_diffs_freq[diff] = 1;
+                } else {
+                    int_diffs_freq[diff] += 1
+                }
+                //Keep track of the mode
+                if( int_diffs_freq[diff] > max_diff_count ) {
+                    max_diff_count = int_diffs_freq[diff];
+                    mode = diff;
+                }
+            }
+            if( max_diff > (10 * mode) ) { //10 is arbitrary -- Might want to handle this in better way
+                wraparound = true;
+            }
+            if( wraparound ) {
+                /* Start at the top, working backwards */
+                //removeInterIntersections(path, int_indices, int_indices.length, max_diff_index);
+                path.removeSegments(int_indices[max_diff_index]+1,path.length);
+                /* Then the bottom, skipping the large gaps and working backwards */
+                //removeInterIntersections(path, int_indices, max_diff_index, 0);
+                path.removeSegments(0,int_indices[max_diff_index-1]);
+            } else {
+                /* Start at the top, working backwards */
+                //removeInterIntersections(path, int_indices, int_indices.length, 0);
+                path.removeSegments(int_indices[0]+1,int_indices[int_indices.length-1]);
+            }
+            return(path);
+        }
+        var selectedPolygons = this.getSelectedPolygons();
+        //Resolve all crossing first, as these can cause issues with the path.unite() function call
+        selectedPolygons = selectedPolygons.map( (pol) => (this.purgeCrossings(pol)) );
+        var spcurrent = selectedPolygons[0];
+        for( var i = 1; i < selectedPolygons.length; i++ ) {
+            //Find intersections
+            var unite = false;
+            var spnew = null;
+            var spnext = selectedPolygons[i];
+            var intersections = spcurrent.getIntersections(spnext);
+            var rintersections = spnext.getIntersections(spcurrent);
+            if( intersections.length > 0 ) {
+                var spcurrent_indices = intersections.map( (curvL) => curvL.index );
+                var spnext_indices = rintersections.map( (curvL) => curvL.index ); //Extract out the intersection path indices only
+                /* Strip out paths shared b/w the two polygons to avoid issues with merging and 'gaps' */
+                removeSegments(spcurrent, spcurrent_indices);
+                removeSegments(spnext, spnext_indices);
+                unite = true;
+            } else if( spnext.isInside(spcurrent.bounds) || spcurrent.isInside(spnext.bounds) ) {
+                //If one is inside the other, then uniting is also possible
+                unite = true;
+            }
+            /*
+            if( unite == true ) {
+                spnew     = this.mergePaths(spcurrent, spnext);
+            }
+            */
+            spcurrent = spnew || spnext;
         }
         this.sendMsg("pointer");
     }
@@ -170,11 +238,12 @@ export default class SseEditor2d extends React.Component {
             this.mergingFirstPath = null;
             this.setActualSelection([newPath]);
             this.fullUpdate();
+            return(newPath);
         } else {
             this.sendMsg("alert", {message: "Merging cancelled: The resulting polygon can not contain hole(s)."})
+            return(null);
         }
     }
-
 
     /**
      * Look for a pre-existing path to stick to during polygon creation
@@ -213,6 +282,11 @@ export default class SseEditor2d extends React.Component {
         else
             this.sendMsg("disableCommand", {name: "deleteCommand"});
 
+        if (this.actualSelection.length > 1)
+            this.sendMsg("enableCommand", {name: "mergeCommand"});
+        else
+            this.sendMsg("disableCommand", {name: "mergeCommand"});
+
         if (this.selectedIntersections) {
             const sp = this.getSelectedPolygons()[0];
             const up = Array.from(this.selectedIntersections).some(p => sp.isBelow(p));
@@ -226,12 +300,10 @@ export default class SseEditor2d extends React.Component {
                 this.sendMsg("enableCommand", {name: "downCommand"});
             else
                 this.sendMsg("disableCommand", {name: "downCommand"});
-            this.sendMsg("enableCommand", {name: "mergeCommand"});
         }
         else {
             this.sendMsg("disableCommand", {name: "upCommand"});
             this.sendMsg("disableCommand", {name: "downCommand"});
-            this.sendMsg("disableCommand", {name: "mergeCommand"});
         }
     }
 
@@ -330,6 +402,16 @@ export default class SseEditor2d extends React.Component {
         setTimeout(() => {
             this.setActualSelection(arr);
         }, 0);
+    }
+
+    /**
+     * The actual selection is a set of items the user clicked on It contains a polygon and an optional point,
+     * a point is always selected with its hosting polygon)
+     * @param pols - array of polygon features
+     */
+    pushActualSelection(pols) {
+        pols.forEach( (pol) => this.actualSelection.push(pol) );
+        this.setActualSelection(this.actualSelection);
     }
 
     /**
@@ -574,6 +656,42 @@ export default class SseEditor2d extends React.Component {
         this.geom = new SseGeometry(this.mainLayer.children, ignoreLastPolygon);
         //this.geom.computePolygonsIntersections(); //AFM - removing functionality for performance reasons
         // console.log("Geometry updated in", (new Date().getTime() - start) + "ms")
+    }
+
+
+    purgeCrossings(pol) {
+        let rc = pol.resolveCrossings();
+        /* Find the largest child */
+        if( rc.children ) {
+            let cmax = 0;
+            let cmaxi = -1;
+            for( var i = 0; i < rc.children.length; i++ ) {
+                let cpol = rc.children[i];
+                if( cmax < cpol.segments.length ) {
+                    cmax = cpol.segments.length;
+                    cmaxi = i; 
+                }
+            }
+            //Remove all resolved crossings except for the largest
+            for( var i = 0; i < rc.children.length; i++ ) {
+                if( i != cmaxi ) {
+                    rc.children[i].remove();
+                }
+            }
+            let npol             = rc.children[cmaxi];
+            npol.feature         = pol.feature;
+            npol.fillColor       = pol.fillColor;
+            npol.strokeColor     = pol.strokeColor;
+            npol.strokeWidth     = pol.strokeWidth;
+            npol.selectedColor   = pol.selectedColor;
+            npol.strokeScaling   = pol.strokeScaling;
+            npol.feature         = {classIndex: pol.feature.classIndex, layer: pol.feature.layer, polygon: []};
+            this.mainLayer.addChild(npol);
+            npol.fullySelected   = false;
+            rc.remove();
+            rc = npol;
+        }
+        return(rc);
     }
 
     cleanupGraphicsHierarchy() {

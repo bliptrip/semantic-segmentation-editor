@@ -101,7 +101,7 @@ export default class SseGeometry {
                 this.nextOutlinePoints.set(pt, (nexts || new Set()).union(this.contiguousOutlinePoints(seg)));
             });
         });
-        //this.computePolygonsIntersections(); //AFM - Removing calculation of intersections -- disables automated merge
+        //this.computePolygonsIntersections(); //AFM - Disabling for performance reasons
         //functionality for now
     }
 
