@@ -29,8 +29,7 @@ export default class SsePointerTool extends SseTool {
     onMouseDown(event) {
         if (!this.isLeftButton(event) || event.modifiers.space)
             return super.viewDown(event);
-
-
+        
         // A mouse down event could be the beginning of a mouse drag. If it is a mouse drag
         // we don't want to snap to the currently editing feature, so we exclude the selected
         // items
@@ -145,7 +144,8 @@ export default class SsePointerTool extends SseTool {
     onMouseUp(event) {
         if (!this.isLeftButton(event) || event.modifiers.space)
             return super.viewUp(event);
-        this.editor.clearActualSelection();
+        if (!event.modifiers.shift)
+            this.editor.clearActualSelection(); //Only clear the actual selection if the shift key isn't selected
         if (this.editedByDragging) {
             if (this.editor.hitInfos && this.editor.hitInfos.type == "line") {
                 // Line snapping: create a new point on the target polygon
@@ -156,7 +156,7 @@ export default class SsePointerTool extends SseTool {
             this.editedByDragging = false;
             this.editor.fullUpdate();
         } else {
-            this.editor.setActualSelection(this.editor.pendingSelection);
+            this.editor.pushActualSelection(this.editor.pendingSelection);
         }
 
         if (this.editor.selectorPath) {
