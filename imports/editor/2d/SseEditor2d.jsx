@@ -145,58 +145,15 @@ export default class SseEditor2d extends React.Component {
     }
 
     mergePath() {
-        const findIntersectionParameters = (path, intersections, int_indices)  => {
-            /* Function to remove segments between intersecting points on the two paths */
-            const removeInterIntersections = (path, indices, start, end) => {
-                for ( var i = start-2; i >= end; i-- ) {
-                    var last_int_index = indices[i+1];
-                    var curr_int_index = indices[i];
-                    path.removeSegments(curr_int_index+1, last_int_index); //+1 to not delete the actual intersection point
-                }
-            }
-            var diff;
-            var int_diffs_freq = {}; //Frequency counts of differences b/w successive indices
-            var max_diff = 0; //The maximal difference between two successive indices
-            var max_diff_index = 0; //The index at which the maximal diff occurs
-            var max_diff_count = 0; //Keeps track of the maximal difference frequency
-            var mode; //Tracks the mode (largest representative differential)
-            var wraparound = false;
-            for ( var i = 1; i < int_indices.length; i++ ) {
-                diff = int_indices[i] - int_indices[i-1];
-                if( max_diff < diff ) {
-                    max_diff_index = i;
-                    max_diff = diff;
-                }
-                if (!int_diffs_freq[diff]) {
-                    int_diffs_freq[diff] = 1;
-                } else {
-                    int_diffs_freq[diff] += 1
-                }
-                //Keep track of the mode
-                if( int_diffs_freq[diff] > max_diff_count ) {
-                    max_diff_count = int_diffs_freq[diff];
-                    mode = diff;
-                }
-            }
-            if( max_diff > (10 * mode) ) { //10 is arbitrary -- Might want to handle this in better way
-                wraparound = true;
-            }
-            
-            if( wraparound ) {
-                return( {"wrap": wraparound, "max_diff_i": max_diff_index, "ends": [intersections[max_diff_index-1], intersections[max_diff_index]]} );
-            } else {
-                return( {"wrap": wraparound, "max_diff_i": null, "ends": [intersections[0], intersections[int_indices.length-1]]} );
-            }
-        }
         /* Force the intersection pairs to be at the same point, in case they aren't.  This avoids the weird 'gap' issue
          * when trying to merge the two polygons
          */
-        const setPointsEqual = (intParams) => {
+        const setPointsEqual = (ints) => {
             var equal = true;
-            for( var i = 0; i < intParams['ends'].length; i++ ) {
-                var intPair = intParams['ends'][i];
-                var pt      = intPair.point
-                var intPt   = intPair.intersection.point
+            for( var i = 0; i < ints.length; i++ ) {
+                var pair   = ints[i];
+                var pt     = pair.point
+                var intPt  = pair.intersection.point
                 if( (pt.x != intPt.x) || (pt.y != intPt.y) ) {
                     /* Arbitrarily set the 'intersecting' polygon's point to match the firt polygon's point. */
                     intPt.set(pt.x, pt.y);
@@ -205,131 +162,99 @@ export default class SseEditor2d extends React.Component {
             }
             return(equal);
         }
-        const findMismatch = (intParams, rintParams) => {
-            const findMismatchHelper = ( p0, p1 ) => {
-                var mismatch = false;
-                for( var i = 0; (i < p0['ends'].length) && !mismatch; i++ ) {
-                    var pair  = p0['ends'][i];
-                    var index = pair.index;
-                    var match = false;
-                    for( var j = 0; (j < p1['ends'].length) && !match; j++ ) {
-                        var intPair   = p1['ends'][j];
-                        var intIndex  = intPair.intersection.index;
-                        if( index == intIndex )
-                            match = true;
-                    }
-                    if( !match )
-                        mismatch = true;
-                }
-                return(mismatch);
-            }
-            if( findMismatchHelper(intParams, rintParams) )
-                return(true);
-            if( findMismatchHelper(rintParams, intParams) )
-                return(true);
-            return(false);
-        }
-        const findFurthestEndpoints = (intParams, rintParams) => {
-            var maxp1 = null;
-            var maxp2 = null;
-            var maxparam1 = null;
-            var maxparam2 = null;
-            var maxdistance = -1;
-            const params = [intParams, rintParams];
-            for( var i = 0; i < params.length; i++ ) {
-                var param1 = params[i];
-                for( var j = i; j < params.length; j++ ) {
-                    var param2 = params[j];
-                    for( var l = 0; l < 2; l++ ) {
-                        var p1 = param1['ends'][l];
-                        var pt1 = p1.point;
-                        for( var k = l; k < 2; k++ ) {
-                            var p2 = param2['ends'][k];
-                            var pt2 = p2.point;
-                            var distance = pt1.getDistance(pt2);
-                            if( distance > maxdistance ) {
-                                maxdistance = distance;
-                                maxparam1 = param1;
-                                maxparam2 = param2;
-                                maxp1 = p1;
-                                maxp2 = p2;
-                            }
-                        }
+        const findIntersectionParameters = (path, intersections)  => {
+            let wrap             = false;
+            let maxDistanceIndex = -1;
+            let tolerance        = 0.01 * path.length;
+            let distanceStart    = intersections.map( (c) => ({curve: c, distance: c.offset}) ); //c.offset should be distance from start of path
+            let distanceEnd      = intersections.map( (c) => ({curve: c, distance: path.length - c.offset}) ); //distance from end of path
+            let minStart         = distanceStart.reduce( (minC, c) => ((c.distance < minC.distance) ? c : minC), {curve: null, distance: path.length + 1000} );
+            let minEnd           = distanceEnd.reduce( (minC, c) => ((c.distance < minC.distance) ? c : minC), {curve: null, distance: path.length + 1000} );
+            if( (minStart.distance < tolerance) && (minEnd.distance < tolerance) ) {
+                wrap = true;
+                let maxInterDistance = -1;
+                for( var i = 0; i < intersections.length-1; i++ ) {
+                    let interDistance = intersections[i+1].offset - intersections[i].offset;
+                    if(interDistance > maxInterDistance) {
+                        maxInterDistance = interDistance;
+                        maxDistanceIndex = i;
                     }
                 }
             }
-            return([maxp1, maxparam1, maxp2, maxparam2]);
+            return( {wrap: wrap, intersections: intersections, breakIndex: maxDistanceIndex, ends: [minStart, minEnd]} );
         }
-        const removeSegments = (path, params, index1, index2) => {
-            var i1 = (index1 <= index2) ? index1 : index2;
-            var i2 = (index1 < index2)  ? index2 : index1;
-            if( params.wrap ) {
-                path.removeSegments(i2+1, path.segments.length);
-                path.removeSegments(0, i1);
-            } else {
-                path.removeSegments(i1+1, i2);
+        const removeInterIntersections = (path, intersections, startIntIndex, endIntIndex ) => { //Remove all points/segments along the path that are b/w the intersecting points
+            let numRemovals = 0
+            for( var i = endIntIndex; i > startIntIndex; i-- ) { //Rewinding is important here, so we don't dynamically update the indices of everything we are looking at
+                let endPathIndex   = intersections[i].index;
+                let startPathIndex = intersections[i-1].index + 1;
+                if( endPathIndex > startPathIndex ) {
+                    path.removeSegments(startPathIndex,endPathIndex); //Add 1 to the startPathIndex as it is inclusive, and we don't want to delete the actualy intersecting point.
+                    numRemovals++;
+                }
             }
-            return(path);
+            return(numRemovals);
         }
         var selectedPolygons = this.getSelectedPolygons();
         //Resolve all crossing first, as these can cause issues with the path.unite() function call
-        selectedPolygons = selectedPolygons.map( (pol) => (this.purgeCrossings(pol)) );
+        //selectedPolygons = selectedPolygons.map( (pol) => (this.purgeCrossings(pol)) );
         var spcurrent = selectedPolygons[0];
         for( var i = 1; i < selectedPolygons.length; i++ ) {
             //Find intersections
             var unite = false;
             var spnew = null;
             var spnext = selectedPolygons[i];
-            var intersections = spcurrent.getIntersections(spnext);
-            var rintersections = spnext.getIntersections(spcurrent);
+            var intersections, rintersections;
+            intersections = spcurrent.getIntersections(spnext);
+            setPointsEqual(intersections); //Set any intersecting point pairs to be equivalent on their paths, in ase they are trivially different
+            intersections = spcurrent.getIntersections(spnext); //Recaculate intersections with points set equivalent -- just to make sure things are correctly resynced?  May not be necessary
+            rintersections = spnext.getIntersections(spcurrent);
             if( intersections.length > 0 ) {
-                var spcurrent_indices = intersections.map( (curvL) => curvL.index );
-                var spnext_indices = rintersections.map( (curvL) => curvL.index ); //Extract out the intersection path indices only
-                var spcurrent_params = findIntersectionParameters(spcurrent, intersections, spcurrent_indices);
-                var spnext_params    = findIntersectionParameters(spnext, rintersections, spnext_indices);
-                setPointsEqual(spcurrent_params);
-                setPointsEqual(spnext_params);
-                var isMismatch = findMismatch(spcurrent_params, spnext_params);
-                if( isMismatch ) {
-                    //Okay, there is some kind of mismatch in the endpoint pairs.  Find which two pairs are the furthest
-                    //apart in Euclidean distance, and use those two pairs to determine which interleaving segments to
-                    //delete
-                    var furthestSharedEndpoints = findFurthestEndpoints(spcurrent_params,spnext_params);
-                    var p1       = furthestSharedEndpoints[0];
-                    var param1   = furthestSharedEndpoints[1];
-                    var p2       = furthestSharedEndpoints[2];
-                    var param2   = furthestSharedEndpoints[3];
-                    var current_index1;
-                    var next_index1;
-                    var current_index2;
-                    var next_index2;
-                    if( p1.path == spcurrent ) {
-                        current_index1 = p1.index;
-                        next_index1    = p1.intersection.index;
-                    } else if (p1.path == spnext ) {
-                        next_index1    = p1.index;
-                        current_index1 = p1.intersection.index;
-                    }
-                    if( p2.path == spcurrent ) {
-                        current_index2 = p2.index;
-                        next_index2    = p2.intersection.index;
-                    } else if (p2.path == spnext ) {
-                        next_index2    = p2.index;
-                        current_index2 = p2.intersection.index;
-                    }
-                    removeSegments(spcurrent, spcurrent_params, current_index1, current_index2);
-                    removeSegments(spnext, spnext_params, next_index1, next_index2);
+                /*
+                var spcurrent_params = null;
+                var spnext_params = null;
+                var breakCurrentIndexL, breakCurrentIndexU;
+                var breakNextIndexL, breakNextIndexU;
+                var breakL, breakU;
+                spcurrent_params = findIntersectionParameters(spcurrent, intersections);
+                spnext_params    = findIntersectionParameters(spnext, rintersections);
+                if( spcurrent_params.wrap ) {
+                    removeInterIntersections(spcurrent, intersections, spcurrent_params.breakIndex+1, intersections.length-1 ); 
+                    removeInterIntersections(spcurrent, intersections, 0, spcurrent_params.breakIndex ); 
                 } else {
-                    removeSegments(spcurrent, spcurrent_params, spcurrent_params['ends'][0].index, spcurrent_params['ends'][1].index);
-                    removeSegments(spnext, spnext_params, spnext_params['ends'][0].index, spnext_params['ends'][1].index);
+                    removeInterIntersections(spcurrent, intersections, 0, intersections.length-1 );
                 }
-                /* Strip out paths shared b/w the two polygons to avoid issues with merging and 'gaps' */
-                //removeSegments(spcurrent, spcurrent_indices);
-                //removeSegments(spnext, spnext_indices);
+                if( spnext_params.wrap ) {
+                    removeInterIntersections(spnext, rintersections, spnext_params.breakIndex+1, rintersections.length-1 ); 
+                    removeInterIntersections(spnext, rintersections, 0, spnext_params.breakIndex ); 
+                } else {
+                    removeInterIntersections(spnext, rintersections, 0, rintersections.length-1 );
+                }
+                */
+                /* Make sure the ordering is correct on the next polygon's path */
+                /*
+                if( breakNextIndexL < breakNextIndexU ) {
+                    breakL = breakNextIndexL;
+                    breakU = breakNextIndexU;
+                }else {
+                    breakL = breakNextIndexU;
+                    breakU = breakNextIndexL;
+                }
+                */
+                /* Check if the next polygon's path has it's intersections wrapping through the current's  */
+                /*
+                if( spnext_params.wrap ) {
+                    spnext.removeSegments(breakU+1, spnext.segments.length);
+                    spnext.removeSegments(0, breakL);
+                } else {
+                    spnext.removeSegments(breakL+1, breakU);
+                }
+                */
                 unite = true;
             } else if( spnext.isInside(spcurrent.bounds) || spcurrent.isInside(spnext.bounds) ) {
                 //If one is inside the other, then uniting is also possible
                 unite = true;
+                break;
             }
             if( unite == true ) {
                 spnew     = this.mergePaths(spcurrent, spnext);
@@ -340,7 +265,12 @@ export default class SseEditor2d extends React.Component {
     }
 
     mergePaths(p1, p2) {
-        const newPath = p1.unite(p2, {insert: false});
+        var newPath = p1.unite(p2, {insert: false});
+        if( !newPath.segments ) {
+            /* This is a compound path.  Choose the child path with the largest area */
+            var largestChild = newPath.children.reduce((lc, c) => (lc.area < c.area ? c : lc), {area: -1});
+            newPath = largestChild;
+        }
         if (newPath.segments) {
             this.mainLayer.addChild(newPath);
             p1.remove();
@@ -777,20 +707,22 @@ export default class SseEditor2d extends React.Component {
         if( rc.children ) {
             let cmax = 0;
             let cmaxi = -1;
-            for( var i = 0; i < rc.children.length; i++ ) {
+            let num_children = rc.children.length
+            for( var i = 0; i < num_children; i++ ) {
                 let cpol = rc.children[i];
                 if( cmax < cpol.segments.length ) {
                     cmax = cpol.segments.length;
                     cmaxi = i; 
                 }
             }
-            //Remove all resolved crossings except for the largest
-            for( var i = 0; i < rc.children.length; i++ ) {
+            //Remove all resolved crossings except for the largest -- work backwards, as the array is updated
+            //dynamically if we delete/remove entries
+            for( var i = num_children-1; i >= 0; i-- ) {
                 if( i != cmaxi ) {
                     rc.children[i].remove();
                 }
             }
-            let npol             = rc.children[cmaxi];
+            let npol             = rc.children[0]; //The array is updated dynamically, so we only include the entry at index 0 -- which should the max-sized entry
             npol.feature         = pol.feature;
             npol.fillColor       = pol.fillColor;
             npol.strokeColor     = pol.strokeColor;
