@@ -1010,6 +1010,8 @@ export default class SseEditor2d extends React.Component {
 
         this.onMsg("tagsChanged", () => this.saveData(true));
 
+        this.onMsg("notesChanged", () => this.saveData(true));
+
         this.onMsg("openJsonView", () => {
             window.open(document.URL.replace("edit", "api/json"));
         });
@@ -1523,6 +1525,8 @@ export default class SseEditor2d extends React.Component {
         res.folder = data.folder;
         res.objects = [];
         res.tags = (data.tags || []).concat();
+        res.notes = data.notes;
+
         let obj;
         data.objects.forEach(o => {
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import {withTracker} from "meteor/react-meteor-data";
 import SseFloodPanel from "./tools/SseFloodPanel";
+import SseNotes from "./SseNotes";
 import SseLayers from "./SseLayers";
 import Slider from "rc-slider";
 import SseMsg from "../../common/SseMsg";
@@ -249,8 +250,8 @@ export default class SseSliderPanel extends React.Component {
                     </div>
 
                 </div>
-
                 <SseLayers/>
+                <SseNotes/>
             </div>
 
         );
