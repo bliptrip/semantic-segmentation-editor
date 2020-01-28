@@ -162,42 +162,9 @@ export default class SseEditor2d extends React.Component {
             }
             return(equal);
         }
-        const findIntersectionParameters = (path, intersections)  => {
-            let wrap             = false;
-            let maxDistanceIndex = -1;
-            let tolerance        = 0.01 * path.length;
-            let distanceStart    = intersections.map( (c) => ({curve: c, distance: c.offset}) ); //c.offset should be distance from start of path
-            let distanceEnd      = intersections.map( (c) => ({curve: c, distance: path.length - c.offset}) ); //distance from end of path
-            let minStart         = distanceStart.reduce( (minC, c) => ((c.distance < minC.distance) ? c : minC), {curve: null, distance: path.length + 1000} );
-            let minEnd           = distanceEnd.reduce( (minC, c) => ((c.distance < minC.distance) ? c : minC), {curve: null, distance: path.length + 1000} );
-            if( (minStart.distance < tolerance) && (minEnd.distance < tolerance) ) {
-                wrap = true;
-                let maxInterDistance = -1;
-                for( var i = 0; i < intersections.length-1; i++ ) {
-                    let interDistance = intersections[i+1].offset - intersections[i].offset;
-                    if(interDistance > maxInterDistance) {
-                        maxInterDistance = interDistance;
-                        maxDistanceIndex = i;
-                    }
-                }
-            }
-            return( {wrap: wrap, intersections: intersections, breakIndex: maxDistanceIndex, ends: [minStart, minEnd]} );
-        }
-        const removeInterIntersections = (path, intersections, startIntIndex, endIntIndex ) => { //Remove all points/segments along the path that are b/w the intersecting points
-            let numRemovals = 0
-            for( var i = endIntIndex; i > startIntIndex; i-- ) { //Rewinding is important here, so we don't dynamically update the indices of everything we are looking at
-                let endPathIndex   = intersections[i].index;
-                let startPathIndex = intersections[i-1].index + 1;
-                if( endPathIndex > startPathIndex ) {
-                    path.removeSegments(startPathIndex,endPathIndex); //Add 1 to the startPathIndex as it is inclusive, and we don't want to delete the actualy intersecting point.
-                    numRemovals++;
-                }
-            }
-            return(numRemovals);
-        }
         var selectedPolygons = this.getSelectedPolygons();
         //Resolve all crossing first, as these can cause issues with the path.unite() function call
-        //selectedPolygons = selectedPolygons.map( (pol) => (this.purgeCrossings(pol)) );
+        selectedPolygons = selectedPolygons.map( (pol) => (this.purgeCrossings(pol)) );
         var spcurrent = selectedPolygons[0];
         for( var i = 1; i < selectedPolygons.length; i++ ) {
             //Find intersections
@@ -206,50 +173,9 @@ export default class SseEditor2d extends React.Component {
             var spnext = selectedPolygons[i];
             var intersections, rintersections;
             intersections = spcurrent.getIntersections(spnext);
-            setPointsEqual(intersections); //Set any intersecting point pairs to be equivalent on their paths, in ase they are trivially different
-            intersections = spcurrent.getIntersections(spnext); //Recaculate intersections with points set equivalent -- just to make sure things are correctly resynced?  May not be necessary
+            setPointsEqual(intersections); //Set any intersecting point pairs to be equivalent on their paths, since they are trivially different
             rintersections = spnext.getIntersections(spcurrent);
             if( intersections.length > 0 ) {
-                /*
-                var spcurrent_params = null;
-                var spnext_params = null;
-                var breakCurrentIndexL, breakCurrentIndexU;
-                var breakNextIndexL, breakNextIndexU;
-                var breakL, breakU;
-                spcurrent_params = findIntersectionParameters(spcurrent, intersections);
-                spnext_params    = findIntersectionParameters(spnext, rintersections);
-                if( spcurrent_params.wrap ) {
-                    removeInterIntersections(spcurrent, intersections, spcurrent_params.breakIndex+1, intersections.length-1 ); 
-                    removeInterIntersections(spcurrent, intersections, 0, spcurrent_params.breakIndex ); 
-                } else {
-                    removeInterIntersections(spcurrent, intersections, 0, intersections.length-1 );
-                }
-                if( spnext_params.wrap ) {
-                    removeInterIntersections(spnext, rintersections, spnext_params.breakIndex+1, rintersections.length-1 ); 
-                    removeInterIntersections(spnext, rintersections, 0, spnext_params.breakIndex ); 
-                } else {
-                    removeInterIntersections(spnext, rintersections, 0, rintersections.length-1 );
-                }
-                */
-                /* Make sure the ordering is correct on the next polygon's path */
-                /*
-                if( breakNextIndexL < breakNextIndexU ) {
-                    breakL = breakNextIndexL;
-                    breakU = breakNextIndexU;
-                }else {
-                    breakL = breakNextIndexU;
-                    breakU = breakNextIndexL;
-                }
-                */
-                /* Check if the next polygon's path has it's intersections wrapping through the current's  */
-                /*
-                if( spnext_params.wrap ) {
-                    spnext.removeSegments(breakU+1, spnext.segments.length);
-                    spnext.removeSegments(0, breakL);
-                } else {
-                    spnext.removeSegments(breakL+1, breakU);
-                }
-                */
                 unite = true;
             } else if( spnext.isInside(spcurrent.bounds) || spcurrent.isInside(spnext.bounds) ) {
                 //If one is inside the other, then uniting is also possible
