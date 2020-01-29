@@ -40,14 +40,14 @@ export default class SseNotes extends React.Component {
                     <div>
                         <TextField
                             multiline
-                            rows="12"
+                            rows="6"
                             value={this.state.notes}
                             variant="outlined"
                             onChange={this.handleChange.bind(this)} 
                         />
                     </div>
                 </form>
-                <button className="sse-button" onClick={this.handleSubmit.bind(this)}>Set Notes</button>
+                <button className="sse-button" onClick={this.handleSubmit.bind(this)}>Save Notes</button>
             </div>
         );
     }
