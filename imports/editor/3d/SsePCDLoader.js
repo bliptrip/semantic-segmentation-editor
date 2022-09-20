@@ -132,7 +132,7 @@ export default class SsePCDLoader {
                     return PCDheader;
                 }
 
-                var textData = this.serverMode ? (new Buffer(data)).toString() : THREE.LoaderUtils.decodeText(data);
+                var textData = this.serverMode ? (Buffer.from(data)).toString() : THREE.LoaderUtils.decodeText(data);
 
                 // parse header (always ascii format)
                 var PCDheader = parseHeader(textData);
@@ -143,9 +143,9 @@ export default class SsePCDLoader {
                 var color = [];
                 var label = [];
                 var payload = [];
+                var rgb = [];
 
                 if (PCDheader.data === 'ascii') {
-
                     const meta = PCDheader;
 
                     let camPosition = new THREE.Vector3(parseFloat(meta.viewpoint.tx), parseFloat(meta.viewpoint.ty),
@@ -159,6 +159,7 @@ export default class SsePCDLoader {
                     var lines = pcdData.split('\n');
                     let pt, item;
                     for (var i = 0, l = lines.length - 1; i < l; i++) {
+                        if(lines[i] == ""){continue;}  // Sometimes empty lines are inserted...
 
                         var line = lines[i].split(' ');
                         item = {};
@@ -189,9 +190,18 @@ export default class SsePCDLoader {
                         }
 
                         // Initialize colors
+                        if (offset.rgb != undefined) {
+                            var colorRGB = parseInt(line[offset.rgb]);
+                            var r = (colorRGB >> 16) & 0x0000ff;
+                            var g = (colorRGB >> 8) & 0x0000ff;
+                            var b = (colorRGB) & 0x0000ff;
+                            rgb.push([r, g, b]);
+                        }
+
                         color.push(0);
                         color.push(0);
                         color.push(0);
+
                     }
                 }
 
@@ -247,6 +257,14 @@ export default class SsePCDLoader {
                         }
 
                         // Initialize colors
+                        if (offset.rgb != undefined) {
+                            var colorRGB = dataview.getUint32(row + offset.rgb, true);
+                            var r = (colorRGB >> 16) & 0x0000ff;
+                            var g = (colorRGB >> 8) & 0x0000ff;
+                            var b = (colorRGB) & 0x0000ff;
+                            rgb.push([r, g, b]);
+                        }
+
                         color.push(0);
                         color.push(0);
                         color.push(0);
@@ -259,7 +277,7 @@ export default class SsePCDLoader {
                     var dataview = new DataView( data, PCDheader.headerLen );
                     var offset = PCDheader.offset;
                     let pt, item;
-
+                    // test.push(offset);
                     let camPosition = new THREE.Vector3(parseFloat(PCDheader.viewpoint.tx), parseFloat(PCDheader.viewpoint.ty),
                         parseFloat(PCDheader.viewpoint.tz));
                     let camQuaternion = new THREE.Quaternion(PCDheader.viewpoint.qx,
@@ -279,7 +297,7 @@ export default class SsePCDLoader {
                             pt = pt.sub(camPosition);
                             pt.applyQuaternion(camQuaternion);
                         }
-                        
+
                         item.x = pt.x;
                         position.push(pt.x);
 
@@ -298,6 +316,14 @@ export default class SsePCDLoader {
                         }
 
                         // Initialize colors
+                        if (offset.rgb != undefined) {
+                            var colorRGB = dataview.getUint32(row + offset.rgb, true);
+                            var r = (colorRGB >> 16) & 0x0000ff;
+                            var g = (colorRGB >> 8) & 0x0000ff;
+                            var b = (colorRGB) & 0x0000ff;
+                            rgb.push([r, g, b]);
+                        }
+
                         color.push(0);
                         color.push(0);
                         color.push(0);
@@ -319,7 +345,7 @@ export default class SsePCDLoader {
 
                 geometry.computeBoundingSphere();
 
-                var material = new THREE.PointsMaterial({size: 2, vertexColors: THREE.VertexColors});
+                var material = new THREE.PointsMaterial({size: 2, color: 0xE9A96F});
                 material.sizeAttenuation = false;
 
                 // build mesh
@@ -328,9 +354,7 @@ export default class SsePCDLoader {
                 name = /([^\/]*)/.exec(name);
                 name = name[1].split('').reverse().join('');
                 mesh.name = url;
-
-                return {position, label, header: PCDheader};
-
+                return {position, label, header: PCDheader, rgb};
             }
 
         };

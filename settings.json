@@ -2,6 +2,7 @@
   "configuration": {
     "images-folder": "/mnt/external/Cranberries/DroneImagery",
     "internal-folder": ""
+    "demo-mode": false
   },
   "sets-of-classes": [
     {

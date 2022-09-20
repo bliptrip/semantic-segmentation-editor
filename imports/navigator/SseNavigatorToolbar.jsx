@@ -48,7 +48,7 @@ export default class SseNavigatorToolbar extends React.Component {
         }
     }
 
-    componentWillReceiveProps() {
+    UNSAFE_componentWillReceiveProps() {
         this.updateBreadCrumb();
     }
 

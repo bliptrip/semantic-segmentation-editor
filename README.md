@@ -7,6 +7,8 @@ It is a [Meteor](http://www.meteor.com) app developed with [React](http://reactj
 [Paper.js](http://paperjs.org/) and [three.js](https://threejs.org/).
 
 **Latest changes**
+ - **Version 1.5:** Provide a Docker image and update to Meteor 1.10 
+ - **Version 1.4:** Support for RGB pointclouds (thanks @Gekk0r)
  - **Version 1.3:** Improve pointcloud labeling: bug fixes and performance improvement (labeling a 1M pointcloud is now possible)
  - **Version 1.2.2:** Breaking change: exported point cloud coordinates are no longer translated (thanks @hetzge)
  - **Version 1.2.0:** Support for binary and binary compressed point clouds (thanks @CecilHarvey)
@@ -31,6 +33,20 @@ It is a [Meteor](http://www.meteor.com) app developed with [React](http://reactj
 <a href="https://github.com/dmandrioli/sse-extra/raw/master/Capture3D2.PNG"><img width="400" src="https://github.com/dmandrioli/sse-extra/raw/master/Capture3D2.jpg"/></a>
 
 ## How to run
+
+### Using Docker Compose
+
+1. Download the docker compose stack file (`sse-docker-stack.yml`)
+2. Set the folder that contains bitmap and point cloud files (`YOUR_IMAGES_PATH`) and run the tool using docker-compose
+3. The tool runs by default on port 80, you can change the mapping in `sse-docker-stack.yml`
+```
+wget https://raw.githubusercontent.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor/master/sse-docker-stack.yml
+wget https://raw.githubusercontent.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor/master/settings.json
+METEOR_SETTINGS=$(cat ./settings.json) SSE_IMAGES=YOUR_IMAGES_PATH docker-compose -f stack.yml up
+```
+(Optional) You can modify `settings.json` to customize classes data.
+
+### Running from source
 
 #### Install Meteor (OSX or Linux) 
 
@@ -157,12 +173,19 @@ marking)
 ### Using the point cloud editor
 
   - Mouse left button: Rotate the point cloud around the current focused point (the center of the point cloud by
-  default), clickon a single point to add it to the current selection
+  default), click on a single point to add it to the current selection
   - Mouse wheel: Zoom in/out
   - Mouse middle button (or Ctrl+Click): Change the target of the camera
   - Mouse right button: Used to select multiple points at the same time depending on the current Selection Tool and
   Selection Mode.
+  - Arrow keys: Move through the scene 
+  
+### PCD support
 
+ - Supported input PCD format: ASCII, Binary and Binary compressed
+ - Supported input fields: `x`, `y`, `z`, `label` (optional integer), `rgb` (optional integer)
+ - Output PCD format is ASCII with fields `x`, `y`, `z`, `label`, `object`  and `rgb` (if available)
+ 
 ### API Endpoints
 
  - <code>/api/listing</code>: List all annotated images
