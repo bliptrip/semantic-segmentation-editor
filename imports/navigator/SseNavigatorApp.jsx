@@ -130,7 +130,7 @@ class SseNavigatorApp extends React.Component {
 
 export default withTracker((props) => {
     Meteor.subscribe("sse-labeled-images");
-    const annotated = SseSamples.find({file: {"$exists": true}, tags: {"$nin" : ["predicted"]}}).fetch();
+    const annotated = SseSamples.find({file: {"$exists": true}, tags: {"$nin" : ["predicted"]}}, options={sort: [['file',1]]}).fetch();
     let urlMap = new Map();
     annotated.forEach(o => urlMap.set(decodeURIComponent(o.url), true));
     return {urlMap};

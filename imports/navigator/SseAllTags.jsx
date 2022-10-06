@@ -47,7 +47,8 @@ class SseAllTags extends React.Component {
                                     <div>{folder[0]}</div>
                                     <div className="hflex wrap w100 h100">
                                         {Array.from(folder[1]).filter(image => image.tags.includes(this.state.tag))
-                                            .map(image =>
+                                            .sort( (ia, ib) => (ia.file > ib.file ? 1 : -1) )
+											.map(image =>
                                                     (
                                                         <div
                                                             onDoubleClick={() => {
