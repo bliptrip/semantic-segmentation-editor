@@ -13,19 +13,19 @@ export default class SseToolbar2d extends SseToolbar {
         this.addCommand("undoCommand", "Undo", false, ["command+Z","Ctrl+Z"], "undo", Undo, "disabled");
         this.addCommand("redoCommand", "Redo", false, ["command+Y","Ctrl+Y"], "redo", Redo, "disabled");
         this.addCommand("pointerCommand", "Manipulation Tool", 1, ["S"], "pointer", CursorDefaultOutline);
-        this.addCommand("cutCommand", "Cut/Expand Tool", 1, "C", "cut", ContentCut, "disabled");
-        this.addCommand("fusionCommand", "Fusion Tool", 1, "U", "fusion", SetAll);
-        this.addCommand("rectangleCommand", "Rectangle Tool", 1, "R", "rectangle", CropLandscape);
-        this.addCommand("polygonCommand", "Polygon Tool", 1, "P", "polygon", VectorPolygon);
-        this.addCommand("magicCommand", "Magic Tool", 1, "A", "flood", AutoFix);
-        this.addCommand("deleteCommand", "Delete Selection", false, "["Del","X"], "delete", DeleteForever, "disabled");
-        this.addCommand("downCommand", "Send Backward", false, "Down", "moveback", ArrangeSendBackward, "disabled");
-        this.addCommand("upCommand", "Bring Forward", false, "Up", "movefront", ArrangeBringForward, "disabled");
-        this.addCommand("mergeCommand", "Merge Polygons", false, "M", "merge", CallMerge, "disabled");
-        this.addCommand("followCommand", "Follow Polygon Outline", false, "F", "follow", Looks, "disabled");
-        this.addCommand("enterCommand", "Create Polygon", false, "Enter", "closepolygon", CheckOutline, "disabled");
-        this.addCommand("jsonCommand", "Show JSON Output", false, "J", "openJsonView", CodeJson);
-        this.addCommand("downloadCommand", "Download", false, "D", "download", Download);
+        this.addCommand("cutCommand", "Cut/Expand Tool", 1, ["C"], "cut", ContentCut, "disabled");
+        this.addCommand("fusionCommand", "Fusion Tool", 1, ["U"], "fusion", SetAll);
+        this.addCommand("rectangleCommand", "Rectangle Tool", 1, ["R"], "rectangle", CropLandscape);
+        this.addCommand("polygonCommand", "Polygon Tool", 1, ["P"], "polygon", VectorPolygon);
+        this.addCommand("magicCommand", "Magic Tool", 1, ["A"], "flood", AutoFix);
+        this.addCommand("deleteCommand", "Delete Selection", false, ["Del","X"], "delete", DeleteForever, "disabled");
+        this.addCommand("downCommand", "Send Backward", false, ["Down"], "moveback", ArrangeSendBackward, "disabled");
+        this.addCommand("upCommand", "Bring Forward", false, ["Up"], "movefront", ArrangeBringForward, "disabled");
+        this.addCommand("mergeCommand", "Merge Polygons", false, ["M"], "merge", CallMerge, "disabled");
+        this.addCommand("followCommand", "Follow Polygon Outline", false, ["F"], "follow", Looks, "disabled");
+        this.addCommand("enterCommand", "Create Polygon", false, ["Enter"], "closepolygon", CheckOutline, "disabled");
+        this.addCommand("jsonCommand", "Show JSON Output", false, ["J"], "openJsonView", CodeJson);
+        this.addCommand("downloadCommand", "Download", false, ["D"], "download", Download);
         this.sendMsg("pointer");
 
     }
