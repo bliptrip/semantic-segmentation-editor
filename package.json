@@ -18,12 +18,13 @@
   },
   "homepage": "https://github.com/Hitachi-Automotive-And-Industry-Lab/semantic-segmentation-editor",
   "scripts": {
-    "debug": "meteor run --port 3030 --settings settings.json --exclude-archs \"web.browser.legacy, web.cordova\""
+    "debug": "meteor run --port 3030 --settings settings.json --exclude-archs \"web.browser.legacy, web.cordova\"",
     "start": "meteor run --port 3030 --settings settings.json --exclude-archs \"web.browser.legacy, web.cordova\" --production"
   },
   "dependencies": {
     "@babel/runtime": "7.12.5",
     "@material-ui/core": "4.11.2",
+	"@material-ui/icons": "4.11.2",
     "@tweenjs/tween.js": "17.2.0",
     "acorn": "8.0.4",
     "body-parser": "1.20.1",
