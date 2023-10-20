@@ -1,5 +1,5 @@
 import React from 'react';
-import Search from '@material-ui/icons/Search';
+import SearchIcon from '@material-ui/icons/Search';
 import IconButton from '@material-ui/core/IconButton';
 import Input from '@material-ui/core/Input';
 
@@ -30,10 +30,10 @@ class SseNavigatorSearch extends React.Component {
         return (
         <div>
             <IconButton onClick={this.handleClick} color="inherit" aria-label="Search">
-                <Search />
+                <SearchIcon />
             </IconButton>
             <Input
-                placeholder="Tag Search…"
+                placeholder="Tag Search"
                 inputProps={{ 'aria-label': 'Search' }}
                 onChange={this.handleChange}
                 onKeyPress={this.handleKey}
