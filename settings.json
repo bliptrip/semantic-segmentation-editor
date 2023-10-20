@@ -1,92 +1,3137 @@
 {
   "configuration": {
-    "images-folder": "/mnt/external/Cranberries/DroneImagery",
-    "internal-folder": ""
+    "images-folder": "/root/sse-images",
+    "internal-folder": "",
     "demo-mode": false
   },
   "sets-of-classes": [
+      {
+          "name": "Drone Berry Development", 
+          "objects": [
+              {"label": "VOID", "color": "#000000"},
+              {"label": "Flag", "color": "#d67e2c"},
+              {"label": "Aisle", "color": "#c29682" },
+              {"label": "Plot", "color": "#469449"},
+              {"label": "Partial Plot", "color": "#80ff00"},
+              {"label": "Bedding", "color": "#333300"},
+              {"label": "Size Card", "color": "#ffffff"},
+              {"label": "Sprinkler", "color": "#a0a0a0"},
+              {"label": "Harvest Ring - Outer", "color": "#e7c71f"},
+              {"label": "Harvest Ring - Inner", "color": "#cc0000"}
+          ]
+      },
+      {
+          "name": "CNJ0x Population Plots",
+          "objects": [
+              {
+                  "label": "VOID",
+                  "color": "#000000"
+              },
+              {
+                  "label": "UNLABELED",
+                  "color": "#ffffff"
+              },
+              {
+                  "label": "R1C1",
+                  "color": "#6528fe"
+              },
+              {
+                  "label": "R2C1",
+                  "color": "#54f6ca"
+              },
+              {
+                  "label": "R3C1",
+                  "color": "#ff4d27"
+              },
+              {
+                  "label": "R4C1",
+                  "color": "#415ffa"
+              },
+              {
+                  "label": "R5C1",
+                  "color": "#78feb8"
+              },
+              {
+                  "label": "R6C1",
+                  "color": "#2f78f7"
+              },
+              {
+                  "label": "R7C1",
+                  "color": "#ff592d"
+              },
+              {
+                  "label": "R8C1",
+                  "color": "#119ff0"
+              },
+              {
+                  "label": "R9C1",
+                  "color": "#16cbe4"
+              },
+              {
+                  "label": "R10C1",
+                  "color": "#ff31"
+              },
+              {
+                  "label": "R11C1",
+                  "color": "#ff2b15"
+              },
+              {
+                  "label": "R12C1",
+                  "color": "#54f6ca"
+              },
+              {
+                  "label": "R13C1",
+                  "color": "#8afeae"
+              },
+              {
+                  "label": "R14C1",
+                  "color": "#415ffa"
+              },
+              {
+                  "label": "R15C1",
+                  "color": "#1cd1e2"
+              },
+              {
+                  "label": "R16C1",
+                  "color": "#cc1e7"
+              },
+              {
+                  "label": "R17C1",
+                  "color": "#fcb763"
+              },
+              {
+                  "label": "R18C1",
+                  "color": "#b6f093"
+              },
+              {
+                  "label": "R19C1",
+                  "color": "#f6bd67"
+              },
+              {
+                  "label": "R20C1",
+                  "color": "#4d4dfb"
+              },
+              {
+                  "label": "R21C1",
+                  "color": "#ff31"
+              },
+              {
+                  "label": "R22C1",
+                  "color": "#7cfeb5"
+              },
+              {
+                  "label": "R23C1",
+                  "color": "#f0c36c"
+              },
+              {
+                  "label": "R24C1",
+                  "color": "#88feaf"
+              },
+              {
+                  "label": "R25C1",
+                  "color": "#c4e88a"
+              },
+              {
+                  "label": "R26C1",
+                  "color": "#ff3e1f"
+              },
+              {
+                  "label": "R27C1",
+                  "color": "#ff4d27"
+              },
+              {
+                  "label": "R1C2",
+                  "color": "#6bbe9"
+              },
+              {
+                  "label": "R2C2",
+                  "color": "#5344fc"
+              },
+              {
+                  "label": "R3C2",
+                  "color": "#c4e88a"
+              },
+              {
+                  "label": "R4C2",
+                  "color": "#f8bb66"
+              },
+              {
+                  "label": "R5C2",
+                  "color": "#ff94"
+              },
+              {
+                  "label": "R6C2",
+                  "color": "#1acfe2"
+              },
+              {
+                  "label": "R7C2",
+                  "color": "#d2de80"
+              },
+              {
+                  "label": "R8C2",
+                  "color": "#88feaf"
+              },
+              {
+                  "label": "R9C2",
+                  "color": "#ff6433"
+              },
+              {
+                  "label": "R10C2",
+                  "color": "#632bfe"
+              },
+              {
+                  "label": "R11C2",
+                  "color": "#ff6735"
+              },
+              {
+                  "label": "R12C2",
+                  "color": "#d8d97c"
+              },
+              {
+                  "label": "R13C2",
+                  "color": "#1995f2"
+              },
+              {
+                  "label": "R14C2",
+                  "color": "#e0d277"
+              },
+              {
+                  "label": "R15C2",
+                  "color": "#72febb"
+              },
+              {
+                  "label": "R16C2",
+                  "color": "#8efdab"
+              },
+              {
+                  "label": "R17C2",
+                  "color": "#ff2211"
+              },
+              {
+                  "label": "R18C2",
+                  "color": "#48f0d0"
+              },
+              {
+                  "label": "R19C2",
+                  "color": "#82feb2"
+              },
+              {
+                  "label": "R20C2",
+                  "color": "#ff8042"
+              },
+              {
+                  "label": "R21C2",
+                  "color": "#a2f99f"
+              },
+              {
+                  "label": "R22C2",
+                  "color": "#ff783e"
+              },
+              {
+                  "label": "R23C2",
+                  "color": "#82feb2"
+              },
+              {
+                  "label": "R24C2",
+                  "color": "#d6db7e"
+              },
+              {
+                  "label": "R25C2",
+                  "color": "#ff00"
+              },
+              {
+                  "label": "R26C2",
+                  "color": "#ff5c2e"
+              },
+              {
+                  "label": "R27C2",
+                  "color": "#2586f5"
+              },
+              {
+                  "label": "R1C3",
+                  "color": "#4b50fb"
+              },
+              {
+                  "label": "R2C3",
+                  "color": "#da4ef"
+              },
+              {
+                  "label": "R3C3",
+                  "color": "#24d7df"
+              },
+              {
+                  "label": "R4C3",
+                  "color": "#60fac4"
+              },
+              {
+                  "label": "R5C3",
+                  "color": "#5cf9c6"
+              },
+              {
+                  "label": "R6C3",
+                  "color": "#ffa759"
+              },
+              {
+                  "label": "R7C3",
+                  "color": "#ff7b3f"
+              },
+              {
+                  "label": "R8C3",
+                  "color": "#612efd"
+              },
+              {
+                  "label": "R9C3",
+                  "color": "#c4e88a"
+              },
+              {
+                  "label": "R10C3",
+                  "color": "#aaf69a"
+              },
+              {
+                  "label": "R11C3",
+                  "color": "#3f61fa"
+              },
+              {
+                  "label": "R12C3",
+                  "color": "#9afba4"
+              },
+              {
+                  "label": "R13C3",
+                  "color": "#ff1ff"
+              },
+              {
+                  "label": "R14C3",
+                  "color": "#3b0ec"
+              },
+              {
+                  "label": "R15C3",
+                  "color": "#fab964"
+              },
+              {
+                  "label": "R16C3",
+                  "color": "#2cdedc"
+              },
+              {
+                  "label": "R17C3",
+                  "color": "#9cfaa3"
+              },
+              {
+                  "label": "R18C3",
+                  "color": "#ff63"
+              },
+              {
+                  "label": "R19C3",
+                  "color": "#ff753c"
+              },
+              {
+                  "label": "R20C3",
+                  "color": "#ff7e41"
+              },
+              {
+                  "label": "R21C3",
+                  "color": "#74feba"
+              },
+              {
+                  "label": "R22C3",
+                  "color": "#8bde8"
+              },
+              {
+                  "label": "R23C3",
+                  "color": "#c6e688"
+              },
+              {
+                  "label": "R24C3",
+                  "color": "#7cfeb5"
+              },
+              {
+                  "label": "R25C3",
+                  "color": "#e6cd73"
+              },
+              {
+                  "label": "R26C3",
+                  "color": "#3570f8"
+              },
+              {
+                  "label": "R27C3",
+                  "color": "#ff934d"
+              },
+              {
+                  "label": "R1C4",
+                  "color": "#ff63"
+              },
+              {
+                  "label": "R2C4",
+                  "color": "#7efeb4"
+              },
+              {
+                  "label": "R3C4",
+                  "color": "#32e2d9"
+              },
+              {
+                  "label": "R4C4",
+                  "color": "#2980f6"
+              },
+              {
+                  "label": "R5C4",
+                  "color": "#ff592d"
+              },
+              {
+                  "label": "R6C4",
+                  "color": "#40ecd3"
+              },
+              {
+                  "label": "R7C4",
+                  "color": "#4d4dfb"
+              },
+              {
+                  "label": "R8C4",
+                  "color": "#5ef9c5"
+              },
+              {
+                  "label": "R9C4",
+                  "color": "#435cfa"
+              },
+              {
+                  "label": "R10C4",
+                  "color": "#5cf9c6"
+              },
+              {
+                  "label": "R11C4",
+                  "color": "#ff753c"
+              },
+              {
+                  "label": "R12C4",
+                  "color": "#1d90f3"
+              },
+              {
+                  "label": "R13C4",
+                  "color": "#ff2e17"
+              },
+              {
+                  "label": "R14C4",
+                  "color": "#36e5d7"
+              },
+              {
+                  "label": "R15C4",
+                  "color": "#8bde8"
+              },
+              {
+                  "label": "R16C4",
+                  "color": "#22d6df"
+              },
+              {
+                  "label": "R17C4",
+                  "color": "#d2de80"
+              },
+              {
+                  "label": "R18C4",
+                  "color": "#7f0ff"
+              },
+              {
+                  "label": "R19C4",
+                  "color": "#f8bb66"
+              },
+              {
+                  "label": "R20C4",
+                  "color": "#b6f093"
+              },
+              {
+                  "label": "R21C4",
+                  "color": "#ff9f54"
+              },
+              {
+                  "label": "R22C4",
+                  "color": "#2b7ea"
+              },
+              {
+                  "label": "R23C4",
+                  "color": "#ff5028"
+              },
+              {
+                  "label": "R24C4",
+                  "color": "#50f4cc"
+              },
+              {
+                  "label": "R25C4",
+                  "color": "#a2f99f"
+              },
+              {
+                  "label": "R26C4",
+                  "color": "#139df1"
+              },
+              {
+                  "label": "R27C4",
+                  "color": "#38e6d7"
+              },
+              {
+                  "label": "R1C5",
+                  "color": "#fa2ef"
+              },
+              {
+                  "label": "R2C5",
+                  "color": "#415ffa"
+              },
+              {
+                  "label": "R3C5",
+                  "color": "#abfe8"
+              },
+              {
+                  "label": "R4C5",
+                  "color": "#26d9de"
+              },
+              {
+                  "label": "R5C5",
+                  "color": "#da4ef"
+              },
+              {
+                  "label": "R6C5",
+                  "color": "#58f7c8"
+              },
+              {
+                  "label": "R7C5",
+                  "color": "#6f19fe"
+              },
+              {
+                  "label": "R8C5",
+                  "color": "#ff6a36"
+              },
+              {
+                  "label": "R9C5",
+                  "color": "#4b9ea"
+              },
+              {
+                  "label": "R10C5",
+                  "color": "#3570f8"
+              },
+              {
+                  "label": "R11C5",
+                  "color": "#72febb"
+              },
+              {
+                  "label": "R12C5",
+                  "color": "#7cfeb5"
+              },
+              {
+                  "label": "R13C5",
+                  "color": "#2980f6"
+              },
+              {
+                  "label": "R14C5",
+                  "color": "#feb461"
+              },
+              {
+                  "label": "R15C5",
+                  "color": "#18cde3"
+              },
+              {
+                  "label": "R16C5",
+                  "color": "#12c7e5"
+              },
+              {
+                  "label": "R17C5",
+                  "color": "#e4cf74"
+              },
+              {
+                  "label": "R18C5",
+                  "color": "#4cf2ce"
+              },
+              {
+                  "label": "R19C5",
+                  "color": "#16cbe4"
+              },
+              {
+                  "label": "R20C5",
+                  "color": "#2980f6"
+              },
+              {
+                  "label": "R21C5",
+                  "color": "#12c7e5"
+              },
+              {
+                  "label": "R22C5",
+                  "color": "#7afeb7"
+              },
+              {
+                  "label": "R23C5",
+                  "color": "#ff904b"
+              },
+              {
+                  "label": "R24C5",
+                  "color": "#cc1e7"
+              },
+              {
+                  "label": "R25C5",
+                  "color": "#7312fe"
+              },
+              {
+                  "label": "R26C5",
+                  "color": "#612efd"
+              },
+              {
+                  "label": "R27C5",
+                  "color": "#aaf69a"
+              },
+              {
+                  "label": "R1C6",
+                  "color": "#ff783e"
+              },
+              {
+                  "label": "R2C6",
+                  "color": "#fcb763"
+              },
+              {
+                  "label": "R3C6",
+                  "color": "#e4cf74"
+              },
+              {
+                  "label": "R4C6",
+                  "color": "#c4e88a"
+              },
+              {
+                  "label": "R5C6",
+                  "color": "#62fac3"
+              },
+              {
+                  "label": "R6C6",
+                  "color": "#4953fb"
+              },
+              {
+                  "label": "R7C6",
+                  "color": "#ecc76e"
+              },
+              {
+                  "label": "R8C6",
+                  "color": "#3ce9d5"
+              },
+              {
+                  "label": "R9C6",
+                  "color": "#8bde8"
+              },
+              {
+                  "label": "R10C6",
+                  "color": "#2d7bf6"
+              },
+              {
+                  "label": "R11C6",
+                  "color": "#5d35fd"
+              },
+              {
+                  "label": "R12C6",
+                  "color": "#4d4dfb"
+              },
+              {
+                  "label": "R13C6",
+                  "color": "#4af1cf"
+              },
+              {
+                  "label": "R14C6",
+                  "color": "#3eead4"
+              },
+              {
+                  "label": "R15C6",
+                  "color": "#ff532a"
+              },
+              {
+                  "label": "R16C6",
+                  "color": "#dad77b"
+              },
+              {
+                  "label": "R17C6",
+                  "color": "#10c5e6"
+              },
+              {
+                  "label": "R18C6",
+                  "color": "#ff129"
+              },
+              {
+                  "label": "R19C6",
+                  "color": "#ff8042"
+              },
+              {
+                  "label": "R20C6",
+                  "color": "#6afcbf"
+              },
+              {
+                  "label": "R21C6",
+                  "color": "#c0ea8c"
+              },
+              {
+                  "label": "R22C6",
+                  "color": "#26d9de"
+              },
+              {
+                  "label": "R23C6",
+                  "color": "#4ef3cd"
+              },
+              {
+                  "label": "R24C6",
+                  "color": "#5147fc"
+              },
+              {
+                  "label": "R25C6",
+                  "color": "#eec56d"
+              },
+              {
+                  "label": "R26C6",
+                  "color": "#ff4422"
+              },
+              {
+                  "label": "R27C6",
+                  "color": "#2586f5"
+              },
+              {
+                  "label": "R1C7",
+                  "color": "#ff1ff"
+              },
+              {
+                  "label": "R2C7",
+                  "color": "#ff31"
+              },
+              {
+                  "label": "R3C7",
+                  "color": "#139df1"
+              },
+              {
+                  "label": "R4C7",
+                  "color": "#7cfeb5"
+              },
+              {
+                  "label": "R5C7",
+                  "color": "#36e5d7"
+              },
+              {
+                  "label": "R6C7",
+                  "color": "#4b50fb"
+              },
+              {
+                  "label": "R7C7",
+                  "color": "#5aeed"
+              },
+              {
+                  "label": "R8C7",
+                  "color": "#4af1cf"
+              },
+              {
+                  "label": "R9C7",
+                  "color": "#4953fb"
+              },
+              {
+                  "label": "R10C7",
+                  "color": "#6afcbf"
+              },
+              {
+                  "label": "R11C7",
+                  "color": "#6efdbd"
+              },
+              {
+                  "label": "R12C7",
+                  "color": "#ff783e"
+              },
+              {
+                  "label": "R13C7",
+                  "color": "#ff4d27"
+              },
+              {
+                  "label": "R14C7",
+                  "color": "#799fe"
+              },
+              {
+                  "label": "R15C7",
+                  "color": "#ded478"
+              },
+              {
+                  "label": "R16C7",
+                  "color": "#3ae8d6"
+              },
+              {
+                  "label": "R17C7",
+                  "color": "#82feb2"
+              },
+              {
+                  "label": "R18C7",
+                  "color": "#ffb260"
+              },
+              {
+                  "label": "R19C7",
+                  "color": "#5147fc"
+              },
+              {
+                  "label": "R20C7",
+                  "color": "#7afeb7"
+              },
+              {
+                  "label": "R21C7",
+                  "color": "#ff6a36"
+              },
+              {
+                  "label": "R22C7",
+                  "color": "#75ffe"
+              },
+              {
+                  "label": "R23C7",
+                  "color": "#d0df82"
+              },
+              {
+                  "label": "R24C7",
+                  "color": "#50f4cc"
+              },
+              {
+                  "label": "R25C7",
+                  "color": "#ffb260"
+              },
+              {
+                  "label": "R26C7",
+                  "color": "#5ef9c5"
+              },
+              {
+                  "label": "R27C7",
+                  "color": "#77cfe"
+              },
+              {
+                  "label": "R1C8",
+                  "color": "#6922fe"
+              },
+              {
+                  "label": "R2C8",
+                  "color": "#baee90"
+              },
+              {
+                  "label": "R3C8",
+                  "color": "#86feb0"
+              },
+              {
+                  "label": "R4C8",
+                  "color": "#9efaa2"
+              },
+              {
+                  "label": "R5C8",
+                  "color": "#ff63"
+              },
+              {
+                  "label": "R6C8",
+                  "color": "#7f0ff"
+              },
+              {
+                  "label": "R7C8",
+                  "color": "#50f4cc"
+              },
+              {
+                  "label": "R8C8",
+                  "color": "#dcd67a"
+              },
+              {
+                  "label": "R9C8",
+                  "color": "#60fac4"
+              },
+              {
+                  "label": "R10C8",
+                  "color": "#ff934d"
+              },
+              {
+                  "label": "R11C8",
+                  "color": "#ffa95a"
+              },
+              {
+                  "label": "R12C8",
+                  "color": "#22d6df"
+              },
+              {
+                  "label": "R13C8",
+                  "color": "#ec3e6"
+              },
+              {
+                  "label": "R14C8",
+                  "color": "#ff4422"
+              },
+              {
+                  "label": "R15C8",
+                  "color": "#ff6d38"
+              },
+              {
+                  "label": "R16C8",
+                  "color": "#3b0ec"
+              },
+              {
+                  "label": "R17C8",
+                  "color": "#4756fb"
+              },
+              {
+                  "label": "R18C8",
+                  "color": "#3b0ec"
+              },
+              {
+                  "label": "R19C8",
+                  "color": "#ff63"
+              },
+              {
+                  "label": "R20C8",
+                  "color": "#c2e98b"
+              },
+              {
+                  "label": "R21C8",
+                  "color": "#64fbc2"
+              },
+              {
+                  "label": "R22C8",
+                  "color": "#ded478"
+              },
+              {
+                  "label": "R23C8",
+                  "color": "#ffab5c"
+              },
+              {
+                  "label": "R24C8",
+                  "color": "#5541fc"
+              },
+              {
+                  "label": "R25C8",
+                  "color": "#66fbc1"
+              },
+              {
+                  "label": "R26C8",
+                  "color": "#ff5028"
+              },
+              {
+                  "label": "R27C8",
+                  "color": "#ffab5c"
+              },
+              {
+                  "label": "R1C9",
+                  "color": "#b6f093"
+              },
+              {
+                  "label": "R2C9",
+                  "color": "#3b0ec"
+              },
+              {
+                  "label": "R3C9",
+                  "color": "#8afeae"
+              },
+              {
+                  "label": "R4C9",
+                  "color": "#3ce9d5"
+              },
+              {
+                  "label": "R5C9",
+                  "color": "#82feb2"
+              },
+              {
+                  "label": "R6C9",
+                  "color": "#ff4422"
+              },
+              {
+                  "label": "R7C9",
+                  "color": "#5d35fd"
+              },
+              {
+                  "label": "R8C9",
+                  "color": "#64fbc2"
+              },
+              {
+                  "label": "R9C9",
+                  "color": "#2980f6"
+              },
+              {
+                  "label": "R10C9",
+                  "color": "#5b38fd"
+              },
+              {
+                  "label": "R11C9",
+                  "color": "#ff5028"
+              },
+              {
+                  "label": "R12C9",
+                  "color": "#42edd2"
+              },
+              {
+                  "label": "R13C9",
+                  "color": "#ff381c"
+              },
+              {
+                  "label": "R14C9",
+                  "color": "#1995f2"
+              },
+              {
+                  "label": "R15C9",
+                  "color": "#94fca8"
+              },
+              {
+                  "label": "R16C9",
+                  "color": "#3373f8"
+              },
+              {
+                  "label": "R17C9",
+                  "color": "#3ae8d6"
+              },
+              {
+                  "label": "R18C9",
+                  "color": "#da4ef"
+              },
+              {
+                  "label": "R19C9",
+                  "color": "#c2e98b"
+              },
+              {
+                  "label": "R20C9",
+                  "color": "#4b50fb"
+              },
+              {
+                  "label": "R21C9",
+                  "color": "#eec56d"
+              },
+              {
+                  "label": "R22C9",
+                  "color": "#77cfe"
+              },
+              {
+                  "label": "R23C9",
+                  "color": "#4756fb"
+              },
+              {
+                  "label": "R24C9",
+                  "color": "#ffc6"
+              },
+              {
+                  "label": "R25C9",
+                  "color": "#612efd"
+              },
+              {
+                  "label": "R26C9",
+                  "color": "#ff351a"
+              },
+              {
+                  "label": "R27C9",
+                  "color": "#612efd"
+              },
+              {
+                  "label": "R1C10",
+                  "color": "#c0ea8c"
+              },
+              {
+                  "label": "R2C10",
+                  "color": "#ded478"
+              },
+              {
+                  "label": "R3C10",
+                  "color": "#e8cb71"
+              },
+              {
+                  "label": "R4C10",
+                  "color": "#9a9ee"
+              },
+              {
+                  "label": "R5C10",
+                  "color": "#a8f69c"
+              },
+              {
+                  "label": "R6C10",
+                  "color": "#6f19fe"
+              },
+              {
+                  "label": "R7C10",
+                  "color": "#b4f194"
+              },
+              {
+                  "label": "R8C10",
+                  "color": "#376df8"
+              },
+              {
+                  "label": "R9C10",
+                  "color": "#799fe"
+              },
+              {
+                  "label": "R10C10",
+                  "color": "#36e5d7"
+              },
+              {
+                  "label": "R11C10",
+                  "color": "#2980f6"
+              },
+              {
+                  "label": "R12C10",
+                  "color": "#ff4d27"
+              },
+              {
+                  "label": "R13C10",
+                  "color": "#40ecd3"
+              },
+              {
+                  "label": "R14C10",
+                  "color": "#ded478"
+              },
+              {
+                  "label": "R15C10",
+                  "color": "#5aeed"
+              },
+              {
+                  "label": "R16C10",
+                  "color": "#4cf2ce"
+              },
+              {
+                  "label": "R17C10",
+                  "color": "#ff3119"
+              },
+              {
+                  "label": "R18C10",
+                  "color": "#1ed2e1"
+              },
+              {
+                  "label": "R19C10",
+                  "color": "#ff63"
+              },
+              {
+                  "label": "R20C10",
+                  "color": "#4d4dfb"
+              },
+              {
+                  "label": "R21C10",
+                  "color": "#e8cb71"
+              },
+              {
+                  "label": "R22C10",
+                  "color": "#10c5e6"
+              },
+              {
+                  "label": "R23C10",
+                  "color": "#1d90f3"
+              },
+              {
+                  "label": "R24C10",
+                  "color": "#e8cb71"
+              },
+              {
+                  "label": "R25C10",
+                  "color": "#ec3e6"
+              },
+              {
+                  "label": "R26C10",
+                  "color": "#12c7e5"
+              },
+              {
+                  "label": "R27C10",
+                  "color": "#fa2ef"
+              }
+          ]
+    },
     {
-      "name": "Drone Berry Development", "objects": [
-      {"label": "VOID", "color": "#000000"},
-      {"label": "Flag", "color": "#d67e2c"},
-      {"label": "Aisle", "color": "#c29682" },
-      {"label": "Plot", "color": "#469449"},
-      {"label": "Partial Plot", "color": "#80ff00"},
-      {"label": "Bedding", "color": "#333300"},
-      {"label": "Size Card", "color": "#ffffff"},
-      {"label": "Sprinkler", "color": "#a0a0a0"},
-      {"label": "Harvest Ring - Outer", "color": "#e7c71f"},
-      {"label": "Harvest Ring - Inner", "color": "#cc0000"}
-    ]
-    }
-    ,
+        "name": "GRYG Population Plots",
+        "objects": [
+            {
+                "label": "VOID",
+                "color": "#000000"
+            },
+            {
+                "label": "UNLABELED",
+                "color": "#ffffff"
+            },
+            {
+                "label": "P1",
+                "color": "#6528fe"
+            },
+            {
+                "label": "P15",
+                "color": "#54f6ca"
+            },
+            {
+                "label": "P29",
+                "color": "#ff4d27"
+            },
+            {
+                "label": "P43",
+                "color": "#415ffa"
+            },
+            {
+                "label": "P57",
+                "color": "#78feb8"
+            },
+            {
+                "label": "P71",
+                "color": "#2f78f7"
+            },
+            {
+                "label": "P85",
+                "color": "#ff592d"
+            },
+            {
+                "label": "P99",
+                "color": "#119ff0"
+            },
+            {
+                "label": "P113",
+                "color": "#16cbe4"
+            },
+            {
+                "label": "P127",
+                "color": "#ff31"
+            },
+            {
+                "label": "P141",
+                "color": "#ff2b15"
+            },
+            {
+                "label": "P155",
+                "color": "#54f6ca"
+            },
+            {
+                "label": "P169",
+                "color": "#8afeae"
+            },
+            {
+                "label": "P183",
+                "color": "#415ffa"
+            },
+            {
+                "label": "P197",
+                "color": "#1cd1e2"
+            },
+            {
+                "label": "P211",
+                "color": "#cc1e7"
+            },
+            {
+                "label": "P225",
+                "color": "#fcb763"
+            },
+            {
+                "label": "P239",
+                "color": "#b6f093"
+            },
+            {
+                "label": "P253",
+                "color": "#f6bd67"
+            },
+            {
+                "label": "P267",
+                "color": "#4d4dfb"
+            },
+            {
+                "label": "P281",
+                "color": "#ff31"
+            },
+            {
+                "label": "P295",
+                "color": "#7cfeb5"
+            },
+            {
+                "label": "P309",
+                "color": "#f0c36c"
+            },
+            {
+                "label": "P323",
+                "color": "#88feaf"
+            },
+            {
+                "label": "P337",
+                "color": "#c4e88a"
+            },
+            {
+                "label": "P351",
+                "color": "#ff3e1f"
+            },
+            {
+                "label": "P365",
+                "color": "#ff4d27"
+            },
+            {
+                "label": "P379",
+                "color": "#6bbe9"
+            },
+            {
+                "label": "P393",
+                "color": "#5344fc"
+            },
+            {
+                "label": "P407",
+                "color": "#c4e88a"
+            },
+            {
+                "label": "P421",
+                "color": "#f8bb66"
+            },
+            {
+                "label": "P435",
+                "color": "#ff94"
+            },
+            {
+                "label": "P449",
+                "color": "#1acfe2"
+            },
+            {
+                "label": "P463",
+                "color": "#d2de80"
+            },
+            {
+                "label": "P477",
+                "color": "#88feaf"
+            },
+            {
+                "label": "P491",
+                "color": "#ff6433"
+            },
+            {
+                "label": "P505",
+                "color": "#632bfe"
+            },
+            {
+                "label": "P519",
+                "color": "#ff6735"
+            },
+            {
+                "label": "P2",
+                "color": "#d8d97c"
+            },
+            {
+                "label": "P16",
+                "color": "#1995f2"
+            },
+            {
+                "label": "P30",
+                "color": "#e0d277"
+            },
+            {
+                "label": "P44",
+                "color": "#72febb"
+            },
+            {
+                "label": "P58",
+                "color": "#8efdab"
+            },
+            {
+                "label": "P72",
+                "color": "#ff2211"
+            },
+            {
+                "label": "P86",
+                "color": "#48f0d0"
+            },
+            {
+                "label": "P100",
+                "color": "#82feb2"
+            },
+            {
+                "label": "P114",
+                "color": "#ff8042"
+            },
+            {
+                "label": "P128",
+                "color": "#a2f99f"
+            },
+            {
+                "label": "P142",
+                "color": "#ff783e"
+            },
+            {
+                "label": "P156",
+                "color": "#82feb2"
+            },
+            {
+                "label": "P170",
+                "color": "#d6db7e"
+            },
+            {
+                "label": "P184",
+                "color": "#ff00"
+            },
+            {
+                "label": "P198",
+                "color": "#ff5c2e"
+            },
+            {
+                "label": "P212",
+                "color": "#2586f5"
+            },
+            {
+                "label": "P226",
+                "color": "#4b50fb"
+            },
+            {
+                "label": "P240",
+                "color": "#da4ef"
+            },
+            {
+                "label": "P254",
+                "color": "#24d7df"
+            },
+            {
+                "label": "P268",
+                "color": "#60fac4"
+            },
+            {
+                "label": "P282",
+                "color": "#5cf9c6"
+            },
+            {
+                "label": "P296",
+                "color": "#ffa759"
+            },
+            {
+                "label": "P310",
+                "color": "#ff7b3f"
+            },
+            {
+                "label": "P324",
+                "color": "#612efd"
+            },
+            {
+                "label": "P338",
+                "color": "#c4e88a"
+            },
+            {
+                "label": "P352",
+                "color": "#aaf69a"
+            },
+            {
+                "label": "P366",
+                "color": "#3f61fa"
+            },
+            {
+                "label": "P380",
+                "color": "#9afba4"
+            },
+            {
+                "label": "P394",
+                "color": "#ff1ff"
+            },
+            {
+                "label": "P408",
+                "color": "#3b0ec"
+            },
+            {
+                "label": "P422",
+                "color": "#fab964"
+            },
+            {
+                "label": "P436",
+                "color": "#2cdedc"
+            },
+            {
+                "label": "P450",
+                "color": "#9cfaa3"
+            },
+            {
+                "label": "P464",
+                "color": "#ff63"
+            },
+            {
+                "label": "P478",
+                "color": "#ff753c"
+            },
+            {
+                "label": "P492",
+                "color": "#ff7e41"
+            },
+            {
+                "label": "P506",
+                "color": "#74feba"
+            },
+            {
+                "label": "P520",
+                "color": "#8bde8"
+            },
+            {
+                "label": "P3",
+                "color": "#c6e688"
+            },
+            {
+                "label": "P17",
+                "color": "#7cfeb5"
+            },
+            {
+                "label": "P31",
+                "color": "#e6cd73"
+            },
+            {
+                "label": "P45",
+                "color": "#3570f8"
+            },
+            {
+                "label": "P59",
+                "color": "#ff934d"
+            },
+            {
+                "label": "P73",
+                "color": "#ff63"
+            },
+            {
+                "label": "P87",
+                "color": "#7efeb4"
+            },
+            {
+                "label": "P101",
+                "color": "#32e2d9"
+            },
+            {
+                "label": "P115",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P129",
+                "color": "#ff592d"
+            },
+            {
+                "label": "P143",
+                "color": "#40ecd3"
+            },
+            {
+                "label": "P157",
+                "color": "#4d4dfb"
+            },
+            {
+                "label": "P171",
+                "color": "#5ef9c5"
+            },
+            {
+                "label": "P185",
+                "color": "#435cfa"
+            },
+            {
+                "label": "P199",
+                "color": "#5cf9c6"
+            },
+            {
+                "label": "P213",
+                "color": "#ff753c"
+            },
+            {
+                "label": "P227",
+                "color": "#1d90f3"
+            },
+            {
+                "label": "P241",
+                "color": "#ff2e17"
+            },
+            {
+                "label": "P255",
+                "color": "#36e5d7"
+            },
+            {
+                "label": "P269",
+                "color": "#8bde8"
+            },
+            {
+                "label": "P283",
+                "color": "#22d6df"
+            },
+            {
+                "label": "P297",
+                "color": "#d2de80"
+            },
+            {
+                "label": "P311",
+                "color": "#7f0ff"
+            },
+            {
+                "label": "P325",
+                "color": "#f8bb66"
+            },
+            {
+                "label": "P339",
+                "color": "#b6f093"
+            },
+            {
+                "label": "P353",
+                "color": "#ff9f54"
+            },
+            {
+                "label": "P367",
+                "color": "#2b7ea"
+            },
+            {
+                "label": "P381",
+                "color": "#ff5028"
+            },
+            {
+                "label": "P395",
+                "color": "#50f4cc"
+            },
+            {
+                "label": "P409",
+                "color": "#a2f99f"
+            },
+            {
+                "label": "P423",
+                "color": "#139df1"
+            },
+            {
+                "label": "P437",
+                "color": "#38e6d7"
+            },
+            {
+                "label": "P451",
+                "color": "#fa2ef"
+            },
+            {
+                "label": "P465",
+                "color": "#415ffa"
+            },
+            {
+                "label": "P479",
+                "color": "#abfe8"
+            },
+            {
+                "label": "P493",
+                "color": "#26d9de"
+            },
+            {
+                "label": "P507",
+                "color": "#da4ef"
+            },
+            {
+                "label": "P521",
+                "color": "#58f7c8"
+            },
+            {
+                "label": "P4",
+                "color": "#6f19fe"
+            },
+            {
+                "label": "P18",
+                "color": "#ff6a36"
+            },
+            {
+                "label": "P32",
+                "color": "#4b9ea"
+            },
+            {
+                "label": "P46",
+                "color": "#3570f8"
+            },
+            {
+                "label": "P60",
+                "color": "#72febb"
+            },
+            {
+                "label": "P74",
+                "color": "#7cfeb5"
+            },
+            {
+                "label": "P88",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P102",
+                "color": "#feb461"
+            },
+            {
+                "label": "P116",
+                "color": "#18cde3"
+            },
+            {
+                "label": "P130",
+                "color": "#12c7e5"
+            },
+            {
+                "label": "P144",
+                "color": "#e4cf74"
+            },
+            {
+                "label": "P158",
+                "color": "#4cf2ce"
+            },
+            {
+                "label": "P172",
+                "color": "#16cbe4"
+            },
+            {
+                "label": "P186",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P200",
+                "color": "#12c7e5"
+            },
+            {
+                "label": "P214",
+                "color": "#7afeb7"
+            },
+            {
+                "label": "P228",
+                "color": "#ff904b"
+            },
+            {
+                "label": "P242",
+                "color": "#cc1e7"
+            },
+            {
+                "label": "P256",
+                "color": "#7312fe"
+            },
+            {
+                "label": "P270",
+                "color": "#612efd"
+            },
+            {
+                "label": "P284",
+                "color": "#aaf69a"
+            },
+            {
+                "label": "P298",
+                "color": "#ff783e"
+            },
+            {
+                "label": "P312",
+                "color": "#fcb763"
+            },
+            {
+                "label": "P326",
+                "color": "#e4cf74"
+            },
+            {
+                "label": "P340",
+                "color": "#c4e88a"
+            },
+            {
+                "label": "P354",
+                "color": "#62fac3"
+            },
+            {
+                "label": "P368",
+                "color": "#4953fb"
+            },
+            {
+                "label": "P382",
+                "color": "#ecc76e"
+            },
+            {
+                "label": "P396",
+                "color": "#3ce9d5"
+            },
+            {
+                "label": "P410",
+                "color": "#8bde8"
+            },
+            {
+                "label": "P424",
+                "color": "#2d7bf6"
+            },
+            {
+                "label": "P438",
+                "color": "#5d35fd"
+            },
+            {
+                "label": "P452",
+                "color": "#4d4dfb"
+            },
+            {
+                "label": "P466",
+                "color": "#4af1cf"
+            },
+            {
+                "label": "P480",
+                "color": "#3eead4"
+            },
+            {
+                "label": "P494",
+                "color": "#ff532a"
+            },
+            {
+                "label": "P508",
+                "color": "#dad77b"
+            },
+            {
+                "label": "P522",
+                "color": "#10c5e6"
+            },
+            {
+                "label": "P5",
+                "color": "#ff129"
+            },
+            {
+                "label": "P19",
+                "color": "#ff8042"
+            },
+            {
+                "label": "P33",
+                "color": "#6afcbf"
+            },
+            {
+                "label": "P47",
+                "color": "#c0ea8c"
+            },
+            {
+                "label": "P61",
+                "color": "#26d9de"
+            },
+            {
+                "label": "P75",
+                "color": "#4ef3cd"
+            },
+            {
+                "label": "P89",
+                "color": "#5147fc"
+            },
+            {
+                "label": "P103",
+                "color": "#eec56d"
+            },
+            {
+                "label": "P117",
+                "color": "#ff4422"
+            },
+            {
+                "label": "P131",
+                "color": "#2586f5"
+            },
+            {
+                "label": "P145",
+                "color": "#ff1ff"
+            },
+            {
+                "label": "P159",
+                "color": "#ff31"
+            },
+            {
+                "label": "P173",
+                "color": "#139df1"
+            },
+            {
+                "label": "P187",
+                "color": "#7cfeb5"
+            },
+            {
+                "label": "P201",
+                "color": "#36e5d7"
+            },
+            {
+                "label": "P215",
+                "color": "#4b50fb"
+            },
+            {
+                "label": "P229",
+                "color": "#5aeed"
+            },
+            {
+                "label": "P243",
+                "color": "#4af1cf"
+            },
+            {
+                "label": "P257",
+                "color": "#4953fb"
+            },
+            {
+                "label": "P271",
+                "color": "#6afcbf"
+            },
+            {
+                "label": "P285",
+                "color": "#6efdbd"
+            },
+            {
+                "label": "P299",
+                "color": "#ff783e"
+            },
+            {
+                "label": "P313",
+                "color": "#ff4d27"
+            },
+            {
+                "label": "P327",
+                "color": "#799fe"
+            },
+            {
+                "label": "P341",
+                "color": "#ded478"
+            },
+            {
+                "label": "P355",
+                "color": "#3ae8d6"
+            },
+            {
+                "label": "P369",
+                "color": "#82feb2"
+            },
+            {
+                "label": "P383",
+                "color": "#ffb260"
+            },
+            {
+                "label": "P397",
+                "color": "#5147fc"
+            },
+            {
+                "label": "P411",
+                "color": "#7afeb7"
+            },
+            {
+                "label": "P425",
+                "color": "#ff6a36"
+            },
+            {
+                "label": "P439",
+                "color": "#75ffe"
+            },
+            {
+                "label": "P453",
+                "color": "#d0df82"
+            },
+            {
+                "label": "P467",
+                "color": "#50f4cc"
+            },
+            {
+                "label": "P481",
+                "color": "#ffb260"
+            },
+            {
+                "label": "P495",
+                "color": "#5ef9c5"
+            },
+            {
+                "label": "P509",
+                "color": "#77cfe"
+            },
+            {
+                "label": "P523",
+                "color": "#6922fe"
+            },
+            {
+                "label": "P6",
+                "color": "#baee90"
+            },
+            {
+                "label": "P20",
+                "color": "#86feb0"
+            },
+            {
+                "label": "P34",
+                "color": "#9efaa2"
+            },
+            {
+                "label": "P48",
+                "color": "#ff63"
+            },
+            {
+                "label": "P62",
+                "color": "#7f0ff"
+            },
+            {
+                "label": "P76",
+                "color": "#50f4cc"
+            },
+            {
+                "label": "P90",
+                "color": "#dcd67a"
+            },
+            {
+                "label": "P104",
+                "color": "#60fac4"
+            },
+            {
+                "label": "P118",
+                "color": "#ff934d"
+            },
+            {
+                "label": "P132",
+                "color": "#ffa95a"
+            },
+            {
+                "label": "P146",
+                "color": "#22d6df"
+            },
+            {
+                "label": "P160",
+                "color": "#ec3e6"
+            },
+            {
+                "label": "P174",
+                "color": "#ff4422"
+            },
+            {
+                "label": "P188",
+                "color": "#ff6d38"
+            },
+            {
+                "label": "P202",
+                "color": "#3b0ec"
+            },
+            {
+                "label": "P216",
+                "color": "#4756fb"
+            },
+            {
+                "label": "P230",
+                "color": "#3b0ec"
+            },
+            {
+                "label": "P244",
+                "color": "#ff63"
+            },
+            {
+                "label": "P258",
+                "color": "#c2e98b"
+            },
+            {
+                "label": "P272",
+                "color": "#64fbc2"
+            },
+            {
+                "label": "P286",
+                "color": "#ded478"
+            },
+            {
+                "label": "P300",
+                "color": "#ffab5c"
+            },
+            {
+                "label": "P314",
+                "color": "#5541fc"
+            },
+            {
+                "label": "P328",
+                "color": "#66fbc1"
+            },
+            {
+                "label": "P342",
+                "color": "#ff5028"
+            },
+            {
+                "label": "P356",
+                "color": "#ffab5c"
+            },
+            {
+                "label": "P370",
+                "color": "#b6f093"
+            },
+            {
+                "label": "P384",
+                "color": "#3b0ec"
+            },
+            {
+                "label": "P398",
+                "color": "#8afeae"
+            },
+            {
+                "label": "P412",
+                "color": "#3ce9d5"
+            },
+            {
+                "label": "P426",
+                "color": "#82feb2"
+            },
+            {
+                "label": "P440",
+                "color": "#ff4422"
+            },
+            {
+                "label": "P454",
+                "color": "#5d35fd"
+            },
+            {
+                "label": "P468",
+                "color": "#64fbc2"
+            },
+            {
+                "label": "P482",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P496",
+                "color": "#5b38fd"
+            },
+            {
+                "label": "P510",
+                "color": "#ff5028"
+            },
+            {
+                "label": "P524",
+                "color": "#42edd2"
+            },
+            {
+                "label": "P7",
+                "color": "#ff381c"
+            },
+            {
+                "label": "P21",
+                "color": "#1995f2"
+            },
+            {
+                "label": "P35",
+                "color": "#94fca8"
+            },
+            {
+                "label": "P49",
+                "color": "#3373f8"
+            },
+            {
+                "label": "P63",
+                "color": "#3ae8d6"
+            },
+            {
+                "label": "P77",
+                "color": "#da4ef"
+            },
+            {
+                "label": "P91",
+                "color": "#c2e98b"
+            },
+            {
+                "label": "P105",
+                "color": "#4b50fb"
+            },
+            {
+                "label": "P119",
+                "color": "#eec56d"
+            },
+            {
+                "label": "P133",
+                "color": "#77cfe"
+            },
+            {
+                "label": "P147",
+                "color": "#4756fb"
+            },
+            {
+                "label": "P161",
+                "color": "#ffc6"
+            },
+            {
+                "label": "P175",
+                "color": "#612efd"
+            },
+            {
+                "label": "P189",
+                "color": "#ff351a"
+            },
+            {
+                "label": "P203",
+                "color": "#612efd"
+            },
+            {
+                "label": "P217",
+                "color": "#c0ea8c"
+            },
+            {
+                "label": "P231",
+                "color": "#ded478"
+            },
+            {
+                "label": "P245",
+                "color": "#e8cb71"
+            },
+            {
+                "label": "P259",
+                "color": "#9a9ee"
+            },
+            {
+                "label": "P273",
+                "color": "#a8f69c"
+            },
+            {
+                "label": "P287",
+                "color": "#6f19fe"
+            },
+            {
+                "label": "P301",
+                "color": "#b4f194"
+            },
+            {
+                "label": "P315",
+                "color": "#376df8"
+            },
+            {
+                "label": "P329",
+                "color": "#799fe"
+            },
+            {
+                "label": "P343",
+                "color": "#36e5d7"
+            },
+            {
+                "label": "P357",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P371",
+                "color": "#ff4d27"
+            },
+            {
+                "label": "P385",
+                "color": "#40ecd3"
+            },
+            {
+                "label": "P399",
+                "color": "#ded478"
+            },
+            {
+                "label": "P413",
+                "color": "#5aeed"
+            },
+            {
+                "label": "P427",
+                "color": "#4cf2ce"
+            },
+            {
+                "label": "P441",
+                "color": "#ff3119"
+            },
+            {
+                "label": "P455",
+                "color": "#1ed2e1"
+            },
+            {
+                "label": "P469",
+                "color": "#ff63"
+            },
+            {
+                "label": "P483",
+                "color": "#4d4dfb"
+            },
+            {
+                "label": "P497",
+                "color": "#e8cb71"
+            },
+            {
+                "label": "P511",
+                "color": "#10c5e6"
+            },
+            {
+                "label": "P525",
+                "color": "#1d90f3"
+            },
+            {
+                "label": "P8",
+                "color": "#e8cb71"
+            },
+            {
+                "label": "P22",
+                "color": "#ec3e6"
+            },
+            {
+                "label": "P36",
+                "color": "#12c7e5"
+            },
+            {
+                "label": "P50",
+                "color": "#fa2ef"
+            },
+            {
+                "label": "P64",
+                "color": "#77cfe"
+            },
+            {
+                "label": "P78",
+                "color": "#e2d175"
+            },
+            {
+                "label": "P92",
+                "color": "#50f4cc"
+            },
+            {
+                "label": "P106",
+                "color": "#4756fb"
+            },
+            {
+                "label": "P120",
+                "color": "#beec8e"
+            },
+            {
+                "label": "P134",
+                "color": "#50f4cc"
+            },
+            {
+                "label": "P148",
+                "color": "#ff532a"
+            },
+            {
+                "label": "P162",
+                "color": "#7efeb4"
+            },
+            {
+                "label": "P176",
+                "color": "#ff94"
+            },
+            {
+                "label": "P190",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P204",
+                "color": "#3ce9d5"
+            },
+            {
+                "label": "P218",
+                "color": "#6cfdbe"
+            },
+            {
+                "label": "P232",
+                "color": "#ff1ce"
+            },
+            {
+                "label": "P246",
+                "color": "#2388f4"
+            },
+            {
+                "label": "P260",
+                "color": "#96fca7"
+            },
+            {
+                "label": "P274",
+                "color": "#ff2211"
+            },
+            {
+                "label": "P288",
+                "color": "#abfe8"
+            },
+            {
+                "label": "P302",
+                "color": "#feb461"
+            },
+            {
+                "label": "P316",
+                "color": "#5af8c7"
+            },
+            {
+                "label": "P330",
+                "color": "#ffab5c"
+            },
+            {
+                "label": "P344",
+                "color": "#ffa759"
+            },
+            {
+                "label": "P358",
+                "color": "#ba7ee"
+            },
+            {
+                "label": "P372",
+                "color": "#fff7"
+            },
+            {
+                "label": "P386",
+                "color": "#6bbe9"
+            },
+            {
+                "label": "P400",
+                "color": "#72febb"
+            },
+            {
+                "label": "P414",
+                "color": "#3eead4"
+            },
+            {
+                "label": "P428",
+                "color": "#82feb2"
+            },
+            {
+                "label": "P442",
+                "color": "#ff129"
+            },
+            {
+                "label": "P456",
+                "color": "#ffab5c"
+            },
+            {
+                "label": "P470",
+                "color": "#ff2814"
+            },
+            {
+                "label": "P484",
+                "color": "#ffa457"
+            },
+            {
+                "label": "P498",
+                "color": "#ded478"
+            },
+            {
+                "label": "P512",
+                "color": "#ff4724"
+            },
+            {
+                "label": "P526",
+                "color": "#f2c16a"
+            },
+            {
+                "label": "P9",
+                "color": "#ff5f30"
+            },
+            {
+                "label": "P23",
+                "color": "#b4f194"
+            },
+            {
+                "label": "P37",
+                "color": "#cee183"
+            },
+            {
+                "label": "P51",
+                "color": "#ff2b15"
+            },
+            {
+                "label": "P65",
+                "color": "#139df1"
+            },
+            {
+                "label": "P79",
+                "color": "#593bfd"
+            },
+            {
+                "label": "P93",
+                "color": "#76feb9"
+            },
+            {
+                "label": "P107",
+                "color": "#68fcc0"
+            },
+            {
+                "label": "P121",
+                "color": "#f4bf69"
+            },
+            {
+                "label": "P135",
+                "color": "#8bde8"
+            },
+            {
+                "label": "P149",
+                "color": "#dcd67a"
+            },
+            {
+                "label": "P163",
+                "color": "#3570f8"
+            },
+            {
+                "label": "P177",
+                "color": "#6725fe"
+            },
+            {
+                "label": "P191",
+                "color": "#ff3119"
+            },
+            {
+                "label": "P205",
+                "color": "#ff5f30"
+            },
+            {
+                "label": "P219",
+                "color": "#86feb0"
+            },
+            {
+                "label": "P233",
+                "color": "#abfe8"
+            },
+            {
+                "label": "P247",
+                "color": "#ff753c"
+            },
+            {
+                "label": "P261",
+                "color": "#3b67f9"
+            },
+            {
+                "label": "P275",
+                "color": "#eac970"
+            },
+            {
+                "label": "P289",
+                "color": "#3ce9d5"
+            },
+            {
+                "label": "P303",
+                "color": "#e4cf74"
+            },
+            {
+                "label": "P317",
+                "color": "#ff2e17"
+            },
+            {
+                "label": "P331",
+                "color": "#ff129"
+            },
+            {
+                "label": "P345",
+                "color": "#2edfdb"
+            },
+            {
+                "label": "P359",
+                "color": "#cae486"
+            },
+            {
+                "label": "P373",
+                "color": "#80feb3"
+            },
+            {
+                "label": "P387",
+                "color": "#4cf2ce"
+            },
+            {
+                "label": "P401",
+                "color": "#3f61fa"
+            },
+            {
+                "label": "P415",
+                "color": "#ff8645"
+            },
+            {
+                "label": "P429",
+                "color": "#c6e688"
+            },
+            {
+                "label": "P443",
+                "color": "#7d3fe"
+            },
+            {
+                "label": "P457",
+                "color": "#aef498"
+            },
+            {
+                "label": "P471",
+                "color": "#4cf2ce"
+            },
+            {
+                "label": "P485",
+                "color": "#ffab5c"
+            },
+            {
+                "label": "P499",
+                "color": "#3f61fa"
+            },
+            {
+                "label": "P513",
+                "color": "#ffa95a"
+            },
+            {
+                "label": "P527",
+                "color": "#ff954e"
+            },
+            {
+                "label": "P10",
+                "color": "#e0d277"
+            },
+            {
+                "label": "P24",
+                "color": "#ff2211"
+            },
+            {
+                "label": "P38",
+                "color": "#ff904b"
+            },
+            {
+                "label": "P52",
+                "color": "#cee183"
+            },
+            {
+                "label": "P66",
+                "color": "#ff6131"
+            },
+            {
+                "label": "P80",
+                "color": "#ff6d38"
+            },
+            {
+                "label": "P94",
+                "color": "#62fac3"
+            },
+            {
+                "label": "P108",
+                "color": "#f0c36c"
+            },
+            {
+                "label": "P122",
+                "color": "#ff9d53"
+            },
+            {
+                "label": "P136",
+                "color": "#28dbdd"
+            },
+            {
+                "label": "P150",
+                "color": "#52f5cb"
+            },
+            {
+                "label": "P164",
+                "color": "#632bfe"
+            },
+            {
+                "label": "P178",
+                "color": "#eec56d"
+            },
+            {
+                "label": "P192",
+                "color": "#ff6d38"
+            },
+            {
+                "label": "P206",
+                "color": "#218bf4"
+            },
+            {
+                "label": "P220",
+                "color": "#ff6735"
+            },
+            {
+                "label": "P234",
+                "color": "#d8d97c"
+            },
+            {
+                "label": "P248",
+                "color": "#4cf2ce"
+            },
+            {
+                "label": "P262",
+                "color": "#8bde8"
+            },
+            {
+                "label": "P276",
+                "color": "#42edd2"
+            },
+            {
+                "label": "P290",
+                "color": "#44eed1"
+            },
+            {
+                "label": "P304",
+                "color": "#ff31"
+            },
+            {
+                "label": "P318",
+                "color": "#5b38fd"
+            },
+            {
+                "label": "P332",
+                "color": "#ff381c"
+            },
+            {
+                "label": "P346",
+                "color": "#30e1da"
+            },
+            {
+                "label": "P360",
+                "color": "#64fbc2"
+            },
+            {
+                "label": "P374",
+                "color": "#aef498"
+            },
+            {
+                "label": "P388",
+                "color": "#94fca8"
+            },
+            {
+                "label": "P402",
+                "color": "#b2f295"
+            },
+            {
+                "label": "P416",
+                "color": "#e0d277"
+            },
+            {
+                "label": "P430",
+                "color": "#e4cf74"
+            },
+            {
+                "label": "P444",
+                "color": "#ff2814"
+            },
+            {
+                "label": "P458",
+                "color": "#beec8e"
+            },
+            {
+                "label": "P472",
+                "color": "#e6cd73"
+            },
+            {
+                "label": "P486",
+                "color": "#20d4e0"
+            },
+            {
+                "label": "P500",
+                "color": "#ff7e41"
+            },
+            {
+                "label": "P514",
+                "color": "#c6e688"
+            },
+            {
+                "label": "P528",
+                "color": "#ff4724"
+            },
+            {
+                "label": "P11",
+                "color": "#593bfd"
+            },
+            {
+                "label": "P25",
+                "color": "#3f61fa"
+            },
+            {
+                "label": "P39",
+                "color": "#1995f2"
+            },
+            {
+                "label": "P53",
+                "color": "#d2de80"
+            },
+            {
+                "label": "P67",
+                "color": "#2adcdc"
+            },
+            {
+                "label": "P81",
+                "color": "#58f7c8"
+            },
+            {
+                "label": "P95",
+                "color": "#ff7e41"
+            },
+            {
+                "label": "P109",
+                "color": "#6cfdbe"
+            },
+            {
+                "label": "P123",
+                "color": "#44eed1"
+            },
+            {
+                "label": "P137",
+                "color": "#84feb1"
+            },
+            {
+                "label": "P151",
+                "color": "#ff00"
+            },
+            {
+                "label": "P165",
+                "color": "#abfe8"
+            },
+            {
+                "label": "P179",
+                "color": "#b8ef92"
+            },
+            {
+                "label": "P193",
+                "color": "#b4f194"
+            },
+            {
+                "label": "P207",
+                "color": "#ff3e1f"
+            },
+            {
+                "label": "P221",
+                "color": "#e0d277"
+            },
+            {
+                "label": "P235",
+                "color": "#cce284"
+            },
+            {
+                "label": "P249",
+                "color": "#5ef9c5"
+            },
+            {
+                "label": "P263",
+                "color": "#98fba5"
+            },
+            {
+                "label": "P277",
+                "color": "#ffab5c"
+            },
+            {
+                "label": "P291",
+                "color": "#da4ef"
+            },
+            {
+                "label": "P305",
+                "color": "#6922fe"
+            },
+            {
+                "label": "P319",
+                "color": "#26d9de"
+            },
+            {
+                "label": "P333",
+                "color": "#3373f8"
+            },
+            {
+                "label": "P347",
+                "color": "#3570f8"
+            },
+            {
+                "label": "P361",
+                "color": "#4cf2ce"
+            },
+            {
+                "label": "P375",
+                "color": "#e2d175"
+            },
+            {
+                "label": "P389",
+                "color": "#b0f397"
+            },
+            {
+                "label": "P403",
+                "color": "#4b9ea"
+            },
+            {
+                "label": "P417",
+                "color": "#6d1cfe"
+            },
+            {
+                "label": "P431",
+                "color": "#ff3119"
+            },
+            {
+                "label": "P445",
+                "color": "#6cfdbe"
+            },
+            {
+                "label": "P459",
+                "color": "#5344fc"
+            },
+            {
+                "label": "P473",
+                "color": "#2b7ef6"
+            },
+            {
+                "label": "P487",
+                "color": "#40ecd3"
+            },
+            {
+                "label": "P501",
+                "color": "#ff8645"
+            },
+            {
+                "label": "P515",
+                "color": "#ff8847"
+            },
+            {
+                "label": "P529",
+                "color": "#7312fe"
+            },
+            {
+                "label": "P12",
+                "color": "#3b0ec"
+            },
+            {
+                "label": "P26",
+                "color": "#ff1ce"
+            },
+            {
+                "label": "P40",
+                "color": "#e4cf74"
+            },
+            {
+                "label": "P54",
+                "color": "#d6db7e"
+            },
+            {
+                "label": "P68",
+                "color": "#ff8344"
+            },
+            {
+                "label": "P82",
+                "color": "#aef498"
+            },
+            {
+                "label": "P96",
+                "color": "#4b9ea"
+            },
+            {
+                "label": "P110",
+                "color": "#a0f9a1"
+            },
+            {
+                "label": "P124",
+                "color": "#2cdedc"
+            },
+            {
+                "label": "P138",
+                "color": "#7b6fe"
+            },
+            {
+                "label": "P152",
+                "color": "#435cfa"
+            },
+            {
+                "label": "P166",
+                "color": "#32e2d9"
+            },
+            {
+                "label": "P180",
+                "color": "#6922fe"
+            },
+            {
+                "label": "P194",
+                "color": "#ff5028"
+            },
+            {
+                "label": "P208",
+                "color": "#ff934d"
+            },
+            {
+                "label": "P222",
+                "color": "#44eed1"
+            },
+            {
+                "label": "P236",
+                "color": "#ff19c"
+            },
+            {
+                "label": "P250",
+                "color": "#b2f295"
+            },
+            {
+                "label": "P264",
+                "color": "#ff9d53"
+            },
+            {
+                "label": "P278",
+                "color": "#3b0ec"
+            },
+            {
+                "label": "P292",
+                "color": "#6922fe"
+            },
+            {
+                "label": "P306",
+                "color": "#3175f7"
+            },
+            {
+                "label": "P320",
+                "color": "#38e6d7"
+            },
+            {
+                "label": "P334",
+                "color": "#3175f7"
+            },
+            {
+                "label": "P348",
+                "color": "#7afeb7"
+            },
+            {
+                "label": "P362",
+                "color": "#2980f6"
+            },
+            {
+                "label": "P376",
+                "color": "#ff00"
+            },
+            {
+                "label": "P390",
+                "color": "#62fac3"
+            },
+            {
+                "label": "P404",
+                "color": "#ff15a"
+            },
+            {
+                "label": "P418",
+                "color": "#96fca7"
+            },
+            {
+                "label": "P432",
+                "color": "#90fdaa"
+            },
+            {
+                "label": "P446",
+                "color": "#ffc6"
+            },
+            {
+                "label": "P460",
+                "color": "#ff934d"
+            },
+            {
+                "label": "P474",
+                "color": "#3ae8d6"
+            },
+            {
+                "label": "P488",
+                "color": "#b8ef92"
+            },
+            {
+                "label": "P502",
+                "color": "#0b4eb"
+            },
+            {
+                "label": "P516",
+                "color": "#139df1"
+            },
+            {
+                "label": "P530",
+                "color": "#1d90f3"
+            },
+            {
+                "label": "P13",
+                "color": "#ff9d53"
+            },
+            {
+                "label": "P27",
+                "color": "#2cdedc"
+            },
+            {
+                "label": "P41",
+                "color": "#ff9850"
+            },
+            {
+                "label": "P55",
+                "color": "#ff4120"
+            },
+            {
+                "label": "P69",
+                "color": "#2388f4"
+            },
+            {
+                "label": "P83",
+                "color": "#6bbe9"
+            },
+            {
+                "label": "P97",
+                "color": "#54f6ca"
+            },
+            {
+                "label": "P111",
+                "color": "#e2d175"
+            },
+            {
+                "label": "P125",
+                "color": "#ecc76e"
+            },
+            {
+                "label": "P139",
+                "color": "#c2e98b"
+            },
+            {
+                "label": "P153",
+                "color": "#f6bd67"
+            },
+            {
+                "label": "P167",
+                "color": "#5f31fd"
+            },
+            {
+                "label": "P181",
+                "color": "#ff129"
+            },
+            {
+                "label": "P195",
+                "color": "#76feb9"
+            },
+            {
+                "label": "P209",
+                "color": "#6d1cfe"
+            },
+            {
+                "label": "P223",
+                "color": "#3175f7"
+            },
+            {
+                "label": "P237",
+                "color": "#a0f9a1"
+            },
+            {
+                "label": "P251",
+                "color": "#ffa759"
+            },
+            {
+                "label": "P265",
+                "color": "#12c7e5"
+            },
+            {
+                "label": "P279",
+                "color": "#f2c16a"
+            },
+            {
+                "label": "P293",
+                "color": "#c4e88a"
+            },
+            {
+                "label": "P307",
+                "color": "#396af9"
+            },
+            {
+                "label": "P321",
+                "color": "#d4dc7f"
+            },
+            {
+                "label": "P335",
+                "color": "#119ff0"
+            },
+            {
+                "label": "P349",
+                "color": "#2d7bf6"
+            },
+            {
+                "label": "P363",
+                "color": "#90fdaa"
+            },
+            {
+                "label": "P377",
+                "color": "#3373f8"
+            },
+            {
+                "label": "P391",
+                "color": "#76feb9"
+            },
+            {
+                "label": "P405",
+                "color": "#ded478"
+            },
+            {
+                "label": "P419",
+                "color": "#5aeed"
+            },
+            {
+                "label": "P433",
+                "color": "#ff5f30"
+            },
+            {
+                "label": "P447",
+                "color": "#218bf4"
+            },
+            {
+                "label": "P461",
+                "color": "#ff532a"
+            },
+            {
+                "label": "P475",
+                "color": "#593bfd"
+            },
+            {
+                "label": "P489",
+                "color": "#ffae5d"
+            },
+            {
+                "label": "P503",
+                "color": "#9cfaa3"
+            },
+            {
+                "label": "P517",
+                "color": "#a6f79d"
+            },
+            {
+                "label": "P531",
+                "color": "#d4dc7f"
+            }
+        ]
+    },
     {
-      "name": "X-Rite Color Checker Card", "objects": [
-      {"label": "VOID", "color": "#000000"},
-      {"label": "Square Divider", "color": "#000000"},
-      {"label": "1  Dark Skin", "color": "#735244"},
-      {"label": "2  Light Skin", "color": "#c29682" },
-      {"label": "3  Blue Sky", "color": "#627a9d"},
-      {"label": "4  Foliage", "color": "#576c43"},
-      {"label": "5  Blue Flower", "color": "#8580b1"},
-      {"label": "6  Bluish Green", "color": "#67bdaa"},
-      {"label": "7  Orange", "color": "#d67e2c"},
-      {"label": "8  Purplish Blue", "color": "#505ba6"},
-      {"label": "9  Moderate Red", "color": "#c15a63"},
-      {"label": "10 Purple", "color": "#5e3c6c"},
-      {"label": "11 Yellow Green", "color": "#9dbc40"},
-      {"label": "12 Orange Yellow", "color": "#e0a32e"},
-      {"label": "13 Blue", "color": "#383d96"},
-      {"label": "14 Green", "color": "#469449"},
-      {"label": "15 Red", "color": "#af363c"},
-      {"label": "16 Yellow", "color": "#e7c71f"},
-      {"label": "17 Magenta", "color": "#bb5695"},
-      {"label": "18 Cyan", "color": "#0885a1"},
-      {"label": "19 White", "color": "#f3f3f2"},
-      {"label": "20 Neutral 8", "color": "#c8c8c8"},
-      {"label": "21 Neutral 6.5", "color": "#a0a0a0"},
-      {"label": "22 Neutral 5", "color": "#7a7a79"},
-      {"label": "23 Neutral 3.5", "color": "#555555 "},
-      {"label": "24 Black", "color": "#343434"}
-    ]
+        "name": "X-Rite Color Checker Card", 
+        "objects": [
+            {"label": "VOID", "color": "#000000"},
+            {"label": "Square Divider", "color": "#000000"},
+            {"label": "1  Dark Skin", "color": "#735244"},
+            {"label": "2  Light Skin", "color": "#c29682" },
+            {"label": "3  Blue Sky", "color": "#627a9d"},
+            {"label": "4  Foliage", "color": "#576c43"},
+            {"label": "5  Blue Flower", "color": "#8580b1"},
+            {"label": "6  Bluish Green", "color": "#67bdaa"},
+            {"label": "7  Orange", "color": "#d67e2c"},
+            {"label": "8  Purplish Blue", "color": "#505ba6"},
+            {"label": "9  Moderate Red", "color": "#c15a63"},
+            {"label": "10 Purple", "color": "#5e3c6c"},
+            {"label": "11 Yellow Green", "color": "#9dbc40"},
+            {"label": "12 Orange Yellow", "color": "#e0a32e"},
+            {"label": "13 Blue", "color": "#383d96"},
+            {"label": "14 Green", "color": "#469449"},
+            {"label": "15 Red", "color": "#af363c"},
+            {"label": "16 Yellow", "color": "#e7c71f"},
+            {"label": "17 Magenta", "color": "#bb5695"},
+            {"label": "18 Cyan", "color": "#0885a1"},
+            {"label": "19 White", "color": "#f3f3f2"},
+            {"label": "20 Neutral 8", "color": "#c8c8c8"},
+            {"label": "21 Neutral 6.5", "color": "#a0a0a0"},
+            {"label": "22 Neutral 5", "color": "#7a7a79"},
+            {"label": "23 Neutral 3.5", "color": "#555555 "},
+            {"label": "24 Black", "color": "#343434"}
+        ]
     }
-    ,
-    {
-      "name": "33 Classes", "objects": [
-      {"label": "VOID", "color": "#CFCFCF"},
-      {"label": "Class 1"},
-      {"label": "Class 2"},
-      {"label": "Class 3"},
-      {"label": "Class 4"},
-      {"label": "Class 5"},
-      {"label": "Class 6"},
-      {"label": "Class 7"},
-      {"label": "Class 8"},
-      {"label": "Class 9"},
-      {"label": "Class 10"},
-      {"label": "Class 11"},
-      {"label": "Class 12"},
-      {"label": "Class 13"},
-      {"label": "Class 14"},
-      {"label": "Class 15"},
-      {"label": "Class 16"},
-      {"label": "Class 17"},
-      {"label": "Class 18"},
-      {"label": "Class 19"},
-      {"label": "Class 20"},
-      {"label": "Class 21"},
-      {"label": "Class 22"},
-      {"label": "Class 23"},
-      {"label": "Class 24"},
-      {"label": "Class 25"},
-      {"label": "Class 26"},
-      {"label": "Class 27"},
-      {"label": "Class 28"},
-      {"label": "Class 29"},
-      {"label": "Class 30"},
-      {"label": "Class 31"},
-      {"label": "Class 32"}
     ]
-    }
-  ]
 }
